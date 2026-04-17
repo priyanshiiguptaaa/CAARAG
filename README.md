@@ -1,6 +1,5 @@
 # Confidence-Aware Adaptive Retrieval-Augmented Generation (RAG)
 
-> **Journal Publication Project**
 
 ## Overview
 
