@@ -1,0 +1,8 @@
+{
+  "total_chunks": 262,
+  "unique_source_docs": 239,
+  "total_words": 25784,
+  "avg_chunk_words": 98.41,
+  "min_chunk_words": 51,
+  "max_chunk_words": 150
+}

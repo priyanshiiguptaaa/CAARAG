@@ -1,0 +1,107 @@
+# ─────────────────────────────────────────────────────────────
+# Confidence-Aware Adaptive RAG — Master Configuration
+# ─────────────────────────────────────────────────────────────
+
+project:
+  name: "Confidence-Aware Adaptive RAG"
+  version: "1.0.0"
+  seed: 42
+
+# ── Dataset ──────────────────────────────────────────────────
+dataset:
+  name: "hotpot_qa"
+  config: "fullwiki"
+  splits:
+    train: "train"
+    validation: "validation"
+  max_train_samples: 30         # limited to 30 for fast testing
+  max_val_samples: 10           # limited for fast evaluation
+
+# ── Corpus / Chunking ────────────────────────────────────────
+corpus:
+  chunk_size: 150                # words per chunk (100–300 recommended)
+  overlap: 0                     # word overlap between chunks (0 = no overlap)
+  min_chunk_words: 50            # discard chunks shorter than this
+  output_path: "data/corpus.json"
+  stats_path:  "data/corpus_stats.json"
+  add_keywords: false            # set true only when running step1b_keywords.py separately
+  keyword_top_n: 5
+
+# ── Retrieval ─────────────────────────────────────────────────
+retrieval:
+  # ── Embedding model ────────────────────────────────────────
+  model: "sentence-transformers/all-mpnet-base-v2"   # best quality for journal
+  device: "cpu"                  # "cuda" if GPU available
+  batch_size: 64                 # encoding batch size
+
+  # ── FAISS index ────────────────────────────────────────────
+  index_type: "ivf"              # "ivf" (scalable) | "flat" (exact baseline)
+  nlist: 100                     # IVF clusters  (sqrt(N) rule: sqrt(361k)≈600, 100 ok for dev)
+  nprobe: 10                     # cells to search at query time (higher=more accurate)
+  top_k: 5                       # chunks returned per query
+
+  # ── Paths ──────────────────────────────────────────────────
+  index_path:      "data/faiss_index.bin"
+  embeddings_path: "data/embeddings.npy"
+  id_map_path:     "data/id_map.pkl"
+
+  # ── BM25 sparse index ──────────────────────────────────────
+  build_bm25: true
+  bm25_path:  "data/bm25.pkl"
+
+  # ── Hybrid retrieval ───────────────────────────────────────
+  hybrid_method: "rrf"           # "rrf" (recommended) | "linear"
+  hybrid_alpha: 0.65             # weight for dense score (only for linear method)
+  rrf_k: 60                      # RRF constant (standard value)
+
+  # ── Retrieval evaluation ───────────────────────────────────
+  max_eval_queries: 200          # val queries to evaluate Recall@k / MRR@k
+
+# ── Generation ───────────────────────────────────────────────
+generation:
+  model: "groq"                 # "mock" | "groq" (free) | "openai" | "huggingface"
+  model_id: "llama-3.3-70b-versatile"  # Free Groq model — fastest + best quality
+  n_samples: 1                  # single-shot for responsiveness in demos
+  temperature: 0.2              # lower variance for concise answers
+  max_new_tokens: 128
+  max_context_tokens: 1500      # limit chunk counts
+  strict_mode: true             # say 'I don't know' if context is missing
+  results_path: "data/generation_results.json"
+
+# ── Confidence Estimation ─────────────────────────────────────
+confidence:
+  # Sigmoid calibration: C = 1 / (1 + e^-(a*z + b))
+  a: 10.0                       # scaling
+  b: -5.0                       # bias
+  
+  # Signal Weights (w1, w2, w3) - should sum to 1.0
+  weight_retrieval: 0.3          # Sr weight
+  weight_llm: 0.4                # Sl weight
+  weight_consistency: 0.3        # Sc weight
+
+# ── Adaptive Controller ───────────────────────────────────────
+adaptive:
+  max_rounds: 3                  # maximum iterations per query
+  threshold_tau: 0.7             # stop if final confidence C >= tau
+  early_stop_epsilon: 0.01       # stop if confidence improvement < this
+  
+  # Diagnostic Action Thresholds (if signal < threshold -> take action)
+  threshold_sr: 0.5              # expand_k if retrieval < 0.5
+  threshold_sl: 0.5              # reformulate if LLM < 0.5
+  threshold_sc: 0.5              # increase_sampling if consistency < 0.5
+  
+  delta_k: 5                     # increase k by this much in each round
+  results_path: "data/adaptive_results.json"
+
+# ── Evaluation ────────────────────────────────────────────────
+evaluation:
+  metrics: ["exact_match", "f1", "rouge_l"]
+  calibration_bins: 10             # bins for ECE / reliability diagram
+  results_path: "data/eval_results.json"
+  plots_dir: "data/plots"
+
+# ── Paths ─────────────────────────────────────────────────────
+paths:
+  data_dir: "data"
+  log_dir:  "logs"
+  model_dir: "models"

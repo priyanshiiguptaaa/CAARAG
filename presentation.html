@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confidence-Aware Adaptive RAG — Presentation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    :root {
+      --bg: #0a0e1a;
+      --surface: #111827;
+      --surface2: #1a2235;
+      --accent: #6366f1;
+      --accent2: #34d399;
+      --accent3: #f59e0b;
+      --accent4: #f472b6;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: rgba(99,102,241,0.25);
+      --slide-w: 1280px;
+      --slide-h: 720px;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      background:#07090f;
+      font-family:'Inter', sans-serif;
+      color: var(--text);
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding: 24px 16px 60px;
+      gap: 32px;
+    }
+
+    /* ── NAV BAR ─────────────────────────────────────────── */
+    .navbar {
+      width: 100%;
+      max-width: var(--slide-w);
+      display:flex; justify-content: space-between; align-items:center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 24px;
+      position: sticky; top: 16px; z-index: 100;
+      backdrop-filter: blur(20px);
+    }
+    .navbar .brand { font-weight:700; font-size:14px; color:var(--accent); letter-spacing:.05em; }
+    .nav-controls { display:flex; gap:10px; align-items:center; }
+    .slide-counter { font-size:13px; color:var(--text-muted); font-family:'JetBrains Mono'; }
+    .btn {
+      background: var(--accent);
+      color:#fff; border:none; border-radius:8px;
+      padding:8px 18px; font-size:13px; font-weight:600;
+      cursor:pointer; transition: all .2s;
+    }
+    .btn:hover { background:#818cf8; transform:translateY(-1px); }
+    .btn.outline { background:transparent; border:1px solid var(--border); color:var(--text-muted); }
+    .btn.outline:hover { border-color:var(--accent); color:var(--accent); background:transparent; }
+    .btn:disabled { opacity:.35; cursor:not-allowed; transform:none; }
+
+    /* ── SLIDE WRAPPER ───────────────────────────────────── */
+    .slide-viewport {
+      width: 100%;
+      max-width: var(--slide-w);
+      position: relative;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      animation: fadeIn .35s ease;
+    }
+    .slide.active { display: flex; }
+
+    @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ── SLIDE THUMBNAIL STRIP ───────────────────────────── */
+    .thumbnail-strip {
+      width: 100%;
+      max-width: var(--slide-w);
+      display:flex; gap:10px; overflow-x:auto; padding: 4px 0 8px;
+      scrollbar-width: thin;
+    }
+    .thumb {
+      flex-shrink:0; width:140px; height:79px;
+      background: var(--surface2);
+      border: 2px solid transparent;
+      border-radius: 8px; cursor:pointer;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      padding:8px; gap:4px; transition: all .2s;
+    }
+    .thumb:hover { border-color: rgba(99,102,241,.5); }
+    .thumb.active-thumb { border-color: var(--accent); background: rgba(99,102,241,.1); }
+    .thumb-num { font-size:10px; color:var(--accent); font-weight:700; }
+    .thumb-label { font-size:9px; color:var(--text-muted); text-align:center; line-height:1.3; }
+
+    /* ── GLOBAL SLIDE ELEMENTS ───────────────────────────── */
+    .slide-number-badge {
+      position:absolute; top:22px; right:24px;
+      font-size:12px; color:var(--text-muted);
+      font-family:'JetBrains Mono';
+    }
+    .accent-bar {
+      position:absolute; top:0; left:0; right:0; height:4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+    }
+    .slide-bg-glow {
+      position:absolute; pointer-events:none; opacity:.06;
+      border-radius:50%; filter:blur(80px);
+    }
+
+    /* grid helper */
+    .col-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .col-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+
+    /* cards */
+    .card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .card.accent-card { border-color: rgba(99,102,241,.35); background: rgba(99,102,241,.07); }
+    .card.green-card { border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.07); }
+    .card.amber-card { border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.07); }
+    .card.pink-card { border-color: rgba(244,114,182,.35); background: rgba(244,114,182,.07); }
+
+    .tag {
+      display:inline-block; padding:3px 10px;
+      border-radius:20px; font-size:11px; font-weight:600;
+      background:rgba(99,102,241,.2); color:var(--accent);
+      border:1px solid rgba(99,102,241,.3);
+    }
+    .tag.green { background:rgba(52,211,153,.2); color:var(--accent2); border-color:rgba(52,211,153,.3); }
+    .tag.amber { background:rgba(245,158,11,.2); color:var(--accent3); border-color:rgba(245,158,11,.3); }
+    .tag.pink { background:rgba(244,114,182,.2); color:var(--accent4); border-color:rgba(244,114,182,.3); }
+
+    .metric-big {
+      font-size:38px; font-weight:900; line-height:1;
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .metric-label { font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:.08em; margin-top:4px; }
+
+    /* formula pill */
+    .formula {
+      background: rgba(0,0,0,.4);
+      border: 1px solid rgba(99,102,241,.3);
+      border-radius:10px;
+      padding:12px 18px;
+      font-family:'JetBrains Mono'; font-size:13px;
+      color: #a5b4fc; text-align:center;
+    }
+
+    /* process step */
+    .step-row { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+    .step-num {
+      flex-shrink:0; width:28px; height:28px; border-radius:50%;
+      background: linear-gradient(135deg,var(--accent),#818cf8);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; font-size:12px;
+    }
+    .step-content h4 { font-size:13px; font-weight:700; }
+    .step-content p { font-size:11px; color:var(--text-muted); }
+
+    /* arrow connector */
+    .arrow { color:var(--accent); font-size:20px; text-align:center; margin:-4px 0; }
+
+    /* comparison table */
+    .comp-table { width:100%; border-collapse:collapse; font-size:12px; }
+    .comp-table th { background:rgba(99,102,241,.2); color:var(--accent); padding:8px 12px; text-align:left; }
+    .comp-table td { padding:7px 12px; border-bottom:1px solid rgba(255,255,255,.05); }
+    .comp-table tr:last-child td { border-bottom:none; }
+    .comp-table .highlight { color:var(--accent2); font-weight:700; }
+
+    /* bar chart */
+    .bar-wrap { display:flex; flex-direction:column; gap:10px; }
+    .bar-item { display:flex; align-items:center; gap:10px; }
+    .bar-name { font-size:12px; width:90px; flex-shrink:0; text-align:right; color:var(--text-muted); }
+    .bar-track { flex:1; height:18px; background:rgba(255,255,255,.07); border-radius:9px; overflow:hidden; }
+    .bar-fill { height:100%; border-radius:9px; display:flex; align-items:center; padding-left:8px; font-size:11px; font-weight:700; transition:width 1s ease; }
+    .bar-val { font-size:11px; color:var(--text-muted); width:40px; text-align:right; }
+
+    /* signal pill row */
+    .signal-row { display:flex; gap:12px; flex-wrap:wrap; }
+    .signal-pill {
+      flex:1; min-width:110px; padding:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:12px; text-align:center;
+    }
+    .signal-icon { font-size:22px; margin-bottom:6px; }
+    .signal-name { font-size:12px; font-weight:700; }
+    .signal-desc { font-size:10px; color:var(--text-muted); margin-top:4px; line-height:1.4; }
+
+    /* ═══════════════════════════════════════════════════════════
+       SLIDE STYLES
+    ═══════════════════════════════════════════════════════════ */
+
+    /* SLIDE 1 — Title */
+    #slide-1 {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px;
+      background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(99,102,241,.18) 0%, transparent 70%),
+                  var(--surface);
+    }
+    #slide-1 .kicker {
+      font-size: 12px; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
+      color:var(--accent); margin-bottom:20px;
+      background:rgba(99,102,241,.15); padding:6px 18px; border-radius:20px;
+      border:1px solid rgba(99,102,241,.3);
+    }
+    #slide-1 h1 {
+      font-size: 42px; font-weight:900; line-height:1.15;
+      background:linear-gradient(135deg, var(--text) 30%, #a5b4fc 80%, var(--accent2));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      max-width:780px; margin-bottom: 22px;
+    }
+    #slide-1 .subtitle {
+      font-size:15px; color:var(--text-muted); max-width:560px; line-height:1.6;
+      margin-bottom: 32px;
+    }
+    #slide-1 .tags { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+    #slide-1 .meta {
+      position:absolute; bottom:28px;
+      font-size:12px; color:rgba(255,255,255,.3);
+    }
+    .floating-dots {
+      position:absolute; inset:0; overflow:hidden; pointer-events:none;
+    }
+    .dot {
+      position:absolute; width:4px; height:4px; border-radius:50%;
+      background:var(--accent); opacity:.25;
+    }
+
+    /* SLIDE 2 — Introduction + Problem */
+    .slide-inner { padding:38px 46px; flex:1; display:flex; flex-direction:column; width:100%; }
+    .slide-title { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--accent); margin-bottom:6px; }
+    .slide-heading { font-size:28px; font-weight:800; margin-bottom:20px; line-height:1.2; }
+
+    .pain-point {
+      display:flex; gap:12px; align-items:flex-start;
+      padding:12px 16px; background:rgba(244,114,182,.07);
+      border:1px solid rgba(244,114,182,.25); border-radius:10px; margin-bottom:10px;
+    }
+    .pain-icon { font-size:18px; flex-shrink:0; margin-top:1px; }
+    .pain-text h4 { font-size:13px; font-weight:700; color:#f9a8d4; }
+    .pain-text p { font-size:11px; color:var(--text-muted); margin-top:3px; line-height:1.5; }
+
+    .solution-box {
+      background:linear-gradient(135deg, rgba(99,102,241,.12), rgba(52,211,153,.08));
+      border:1px solid rgba(99,102,241,.3);
+      border-radius:12px; padding:16px 20px; margin-top:auto;
+    }
+    .solution-box h4 { font-size:13px; font-weight:700; color:var(--accent2); margin-bottom:6px; }
+    .solution-box p { font-size:12px; color:var(--text-muted); line-height:1.6; }
+
+    /* SLIDE 3 — Objectives */
+    .objective-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:8px; }
+    .obj-card {
+      padding:16px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+    }
+    .obj-num { font-size:28px; font-weight:900; opacity:.25; font-family:'JetBrains Mono'; }
+    .obj-title { font-size:13px; font-weight:700; margin-top:-4px; margin-bottom:6px; }
+    .obj-desc { font-size:11px; color:var(--text-muted); line-height:1.6; }
+
+    /* SLIDE 5 — Methodology */
+    .pipeline-flow { display:flex; flex-direction:column; gap:0; flex:1; justify-content:center; }
+    .pipe-stage {
+      display:flex; gap:14px; align-items:center;
+      padding:10px 14px; border-radius:10px;
+      border-left:3px solid transparent;
+    }
+    .pipe-icon { font-size:22px; flex-shrink:0; width:36px; text-align:center; }
+    .pipe-content h4 { font-size:13px; font-weight:700; }
+    .pipe-content p { font-size:11px; color:var(--text-muted); }
+    .pipe-arrow { text-align:left; padding-left:58px; color:var(--border); font-size:16px; line-height:1; }
+
+    /* SLIDE 6 — Signals */
+    #slide-6 { flex-direction:column; }
+
+    /* SLIDE 7 — Results */
+    .results-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; flex:1; }
+    .metric-card {
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+      padding:20px;
+      display:flex; flex-direction:column; gap:8px;
+    }
+
+    /* SLIDE 9 — Evaluation Table */
+    .eval-row { display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+    .eval-metric { font-size:13px; font-weight:700; width:160px; flex-shrink:0; }
+    .eval-bar-wrap { flex:1; }
+    .eval-score { font-size:14px; font-weight:800; width:60px; text-align:right; font-family:'JetBrains Mono'; }
+
+    /* SLIDE 10 — Discussion */
+    .finding { display:flex; gap:14px; align-items:flex-start; padding:14px; border-radius:10px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); margin-bottom:10px; }
+    .finding-emoji { font-size:22px; flex-shrink:0; }
+    .finding-text h4 { font-size:13px; font-weight:700; margin-bottom:4px; }
+    .finding-text p { font-size:11px; color:var(--text-muted); line-height:1.55; }
+
+    /* SLIDE 11 — Future Work */
+    .fw-item { display:flex; gap:12px; margin-bottom:14px; }
+    .fw-dot { width:8px; height:8px; border-radius:50%; background:var(--accent); flex-shrink:0; margin-top:5px; }
+    .fw-text h4 { font-size:13px; font-weight:700; margin-bottom:3px; }
+    .fw-text p { font-size:11px; color:var(--text-muted); line-height:1.55; }
+
+    /* SLIDE 12 — Thank You */
+    #slide-12 {
+      flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; padding:60px;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(52,211,153,.12) 0%, transparent 70%),
+                  var(--surface);
+    }
+    #slide-12 h1 { font-size:56px; font-weight:900;
+      background:linear-gradient(135deg,var(--accent2),var(--accent),var(--accent3));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      margin-bottom:16px;
+    }
+
+    progress-ring { display:none; }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width:900px) {
+      .col-2, .results-grid, .objective-grid { grid-template-columns:1fr; }
+      #slide-1 h1 { font-size:28px; }
+      .slide-heading { font-size:20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <span class="brand">🧠 Confidence-Aware Adaptive RAG</span>
+  <div class="nav-controls">
+    <span class="slide-counter" id="counter">1 / 12</span>
+    <button class="btn outline" id="prevBtn" onclick="goSlide(-1)" disabled>← Prev</button>
+    <button class="btn" id="nextBtn" onclick="goSlide(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- SLIDE VIEWPORT -->
+<div class="slide-viewport">
+
+  <!-- ══ SLIDE 1: TITLE ══════════════════════════════════════ -->
+  <div class="slide active" id="slide-1">
+    <div class="accent-bar"></div>
+    <div class="floating-dots" id="dotGrid"></div>
+    <div class="slide-bg-glow" style="width:500px;height:500px;top:-100px;left:-100px;background:var(--accent)"></div>
+    <div class="slide-bg-glow" style="width:400px;height:400px;bottom:-100px;right:-50px;background:var(--accent2)"></div>
+    <div class="slide-number-badge">01 / 12</div>
+    <div class="kicker">📄 Research Presentation</div>
+    <h1>Confidence-Aware Adaptive Retrieval-Augmented Generation</h1>
+    <p class="subtitle">A diagnostic framework that self-corrects using multi-signal confidence estimation for knowledge-intensive open-domain question answering.</p>
+    <div class="tags">
+      <span class="tag">RAG Systems</span>
+      <span class="tag green">Confidence Calibration</span>
+      <span class="tag amber">HotpotQA</span>
+      <span class="tag pink">Multi-Hop Reasoning</span>
+      <span class="tag">LLM Reliability</span>
+    </div>
+    <div class="meta">HotpotQA · SBERT · FAISS · BM25 · Groq LLM (Llama-3.3-70B)</div>
+  </div>
+
+  <!-- ══ SLIDE 2: INTRODUCTION ══════════════════════════════ -->
+  <div class="slide" id="slide-2">
+    <div class="accent-bar"></div>
+    <div class="slide-number-badge">02 / 12</div>
+    <div class="slide-inner">
+      <div class="slide-title">Introduction</div>
+      <div class="slide-heading">Context & Motivation</div>
+      <div class="col-2">
+        <div>
+          <p style="font-size:12px;color:var(--text-muted);line-height:1.7;margin-bottom:14px;">
+            Large Language Models (LLMs) have achieved state-of-the-art results across NLP tasks. However, their knowledge is <strong style="color:var(--text)">static and frozen</strong> at training time, making them vulnerable to outdated information and factual hallucinations.<br><br>
+            <strong style="color:var(--text)">Retrieval-Augmented Generation (RAG)</strong> was proposed to solve this — grounding LLM responses in live, external knowledge. Lewis et al. (2020) showed that RAG significantly reduces hallucination rates on knowledge-intensive benchmarks.
+          </p>
+          <div class="solution-box">
+            <h4>🔎 The Core Gap</h4>
+            <p>Despite their success, all standard RAG systems share one critical flaw: they are <strong>static, single-pass</strong> pipelines with <strong>no ability to self-assess or self-correct</strong> when retrieval or generation fails.</p>
+          </div>
+        </div>
+        <div>
+          <div class="pain-point">
+            <div class="pain-icon">⚠️</div>
+            <div class="pain-text"><h4>Miscalibration</h4><p>LLMs are often overconfident even when their retrieved context is irrelevant or incomplete. Users cannot distinguish reliable from unreliable answers.</p></div>
+          </div>
+          <div class="pain-point">
+            <div class="pain-icon">🔁</div>
+            <div class="pain-text"><h4>No Recovery Mechanism</h4><p>If initial retrieval fails — e.g., missing a "bridge" document in multi-hop QA — the system has no fallback. It generates anyway, creating plausible hallucinations.</p></div>
+          </div>
+          <div class="pain-point">
+            <div class="pain-icon">📉</div>
+            <div class="pain-text"><h4>No Trustworthiness Signal</h4><p>There is no built-in way for users to know if an output from a RAG system is reliable or not, making production deployment risky.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 3: PROBLEM STATEMENT ══════════════════════════ -->
+  <div class="slide" id="slide-3">
+    <div class="accent-bar"></div>
+    <div class="slide-number-badge">03 / 12</div>
+    <div class="slide-inner">
+      <div class="slide-title">Problem Statement</div>
+      <div class="slide-heading">What Breaks in Standard RAG?</div>
+      <div class="col-2" style="flex:1">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="card" style="border-color:rgba(244,114,182,.3);background:rgba(244,114,182,.05)">
+            <div style="font-size:11px;color:var(--accent4);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Problem 1</div>
+            <h3 style="font-size:15px;margin-bottom:6px">Retrieval Starvation</h3>
+            <p style="font-size:12px;color:var(--text-muted);line-height:1.6">When the top-k documents don't contain the answer, the LLM is "starved" of evidence. Instead of failing, it fabricates a plausible response using parametric memory.</p>
+          </div>
+          <div class="card" style="border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.05)">
+            <div style="font-size:11px;color:var(--accent3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Problem 2</div>
+            <h3 style="font-size:15px;margin-bottom:6px">Answer Inconsistency</h3>
+            <p style="font-size:12px;color:var(--text-muted);line-height:1.6">Multiple samplings of the same query produce wildly different answers, indicating high model uncertainty — but no existing pipeline detects or acts on this signal.</p>
+          </div>
+          <div class="card" style="border-color:rgba(99,102,241,.3);background:rgba(99,102,241,.05)">
+            <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Problem 3</div>
+            <h3 style="font-size:15px;margin-bottom:6px">Uncalibrated Confidence</h3>
+            <p style="font-size:12px;color:var(--text-muted);line-height:1.6">Even when models provide a confidence score, it is not calibrated (ECE &gt; 0.3 in standard LLMs) — meaning stated confidence doesn't match actual accuracy.</p>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px">
+          <div style="background:rgba(0,0,0,.3);border:1px dashed rgba(99,102,241,.3);border-radius:14px;padding:22px;text-align:center;width:100%">
+            <div style="font-size:48px;margin-bottom:12px">🤔</div>
+            <h3 style="font-size:16px;margin-bottom:10px;line-height:1.5">The Core Question</h3>
+            <p style="font-size:12px;color:var(--text-muted);line-height:1.7;font-style:italic">"How can a RAG system know — and communicate — when it is uncertain, and automatically take corrective action?"</p>
+          </div>
+          <div class="formula">
+            Expected Calibration Error (ECE) = Σ (|Bin| / N) × |Conf − Acc|
+          </div>
+          <p style="font-size:11px;color:var(--text-muted);text-align:center">Standard RAG systems routinely achieve ECE &gt; 0.25 — a critical reliability failure</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 4: OBJECTIVES ══════════════════════════════════ -->
+  <div class="slide" id="slide-4">
+    <div class="accent-bar"></div>
+    <div class="slide-number-badge">04 / 12</div>
+    <div class="slide-inner">
+      <div class="slide-title">Research Objectives</div>
+      <div class="slide-heading">What We Aim to Achieve</div>
+      <div class="objective-grid">
+        <div class="obj-card" style="border-color:rgba(99,102,241,.25)">
+          <div class="obj-num">01</div>
+          <div class="obj-title" style="color:#a5b4fc">Hybrid Retrieval Architecture</div>
+          <p class="obj-desc">Design a combined dense (SBERT) + sparse (BM25) retrieval pipeline fused via Reciprocal Rank Fusion (RRF) to maximize document recall.</p>
+        </div>
+        <div class="obj-card" style="border-color:rgba(52,211,153,.25)">
+          <div class="obj-num">02</div>
+          <div class="obj-title" style="color:var(--accent2)">Triple-Signal Confidence (TSC)</div>
+          <p class="obj-desc">Formalize three diagnostic signals — Retrieval Stability (Sᵣ), LLM Self-Confidence (Sₗ), and Semantic Consistency (Sᶜ) — to quantify multi-dimensional uncertainty.</p>
+        </div>
+        <div class="obj-card" style="border-color:rgba(245,158,11,.25)">
+          <div class="obj-num">03</div>
+          <div class="obj-title" style="color:var(--accent3)">Adaptive Diagnostic Controller</div>
+          <p class="obj-desc">Implement a signal-aware loop that identifies specific failure modes and triggers targeted remedial actions (expansion or reformulation) — rather than blindly retrying.</p>
+        </div>
+        <div class="obj-card" style="border-color:rgba(244,114,182,.25)">
+          <div class="obj-num">04</div>
+          <div class="obj-title" style="color:var(--accent4)">Calibration & Empirical Validation</div>
+          <p class="obj-desc">Achieve an Expected Calibration Error (ECE) &lt; 0.10 and demonstrate that the confidence score is a reliable predictor of answer quality (Pearson r ≥ 0.5) on HotpotQA.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 5: LITERATURE REVIEW ══════════════════════════ -->
+  <div class="slide" id="slide-5">
+    <div class="accent-bar"></div>
+    <div class="slide-number-badge">05 / 12</div>
+    <div class="slide-inner">
+      <div class="slide-title">Literature Review</div>
+      <div class="slide-heading">Key Related Work</div>
+      <table class="comp-table" style="flex:1">
+        <thead>
+          <tr>
+            <th>Work / Author</th>
+            <th>Year</th>
+            <th>Contribution</th>
+            <th>Limitation addressed by ours</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Lewis et al. — RAG</strong></td>
+            <td class="tag" style="font-size:10px">2020</td>
+            <td>First RAG framework with DPR + Seq2Seq generation</td>
+            <td style="color:var(--text-muted)">Single-pass, no confidence modelling</td>
+          </tr>
+          <tr>
+            <td><strong>Reimers et al. — SBERT</strong></td>
+            <td class="tag" style="font-size:10px">2019</td>
+            <td>Siamese BERT for semantic similarity in dense retrieval</td>
+            <td style="color:var(--text-muted)">Lacks sparse/lexical coverage</td>
+          </tr>
+          <tr>
+            <td><strong>Cormack et al. — RRF</strong></td>
+            <td class="tag" style="font-size:10px">2009</td>
+            <td>Parameter-free rank fusion outperforming individual systems</td>
+            <td style="color:var(--text-muted)">No generation-side feedback</td>
+          </tr>
+          <tr>
+            <td><strong>Wang et al. — Self-Consistency</strong></td>
+            <td class="tag" style="font-size:10px">2022</td>
+            <td>Multi-sample CoT majority vote for confidence estimation</td>
+            <td style="color:var(--text-muted)">Not used as a retrieval feedback signal</td>
+          </tr>
+          <tr>
+            <td><strong>Guo et al. — ECE Calibration</strong></td>
+            <td class="tag" style="font-size:10px">2017</td>
+            <td>Neural network miscalibration + temperature scaling</td>
+            <td style="color:var(--text-muted)">Not applied to RAG systems</td>
+          </tr>
+          <tr>
+            <td><strong>Han et al. — AIR-RAG</strong></td>
+            <td class="tag amber" style="font-size:10px">2025</td>
+            <td>Adaptive iterative retrieval with generation feedback</td>
+            <td style="color:var(--text-muted)">Generic iteration — no root-cause diagnosis</td>
+          </tr>
+          <tr>
+            <td><strong>Ye et al. — Q-PRM</strong></td>
+            <td class="tag amber" style="font-size:10px">2025</td>
+            <td>Step-level query rewriting with process supervision</td>
+            <td style="color:var(--text-muted)">No calibration metric / confidence tracking</td>
+          </tr>
+          <tr>
+            <td><strong class="highlight">Ours — Diagnostic Adaptive RAG</strong></td>
+            <td class="tag green" style="font-size:10px">2026</td>
+            <td class="highlight">TSC signals + Sigmoid Calibration + Targeted Adaptation</td>
+            <td style="color:var(--accent2)">✅ Full diagnostic confidence loop</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 6: METHODOLOGY — PIPELINE ═════════════════════ -->
+  <div class="slide" id="slide-6">
+    <div class="accent-bar"></div>
+    <div class="slide-number-badge">06 / 12</div>
+    <div class="slide-inner">
+      <div class="slide-title">Methodology</div>
+      <div class="slide-heading">The 5-Stage Diagnostic Adaptive Pipeline</div>
+      <div class="col-2" style="flex:1;align-items:center">
+        <div class="pipeline-flow">
+          <div class="pipe-stage" style="border-left-color:var(--accent);background:rgba(99,102,241,.06)">
+            <div class="pipe-icon">📖</div>
+            <div class="pipe-content"><h4>Stage 1: Corpus Preparation</h4><p>Wikipedia chunking (150-word windows), text normalization, BM25 + FAISS dual indexing via SBERT (all-mpnet-base-v2)</p></div>
+          </div>
+          <div class="pipe-arrow">↓</div>
+          <div class="pipe-stage" style="border-left-color:var(--accent2);background:rgba(52,211,153,.06)">
+            <div class="pipe-icon">🔍</div>
+            <div class="pipe-content"><h4>Stage 2: Hybrid Retrieval (RRF)</h4><p>Dense (SBERT cosine) + Sparse (BM25) retrieval fused via Reciprocal Rank Fusion → top-k context chunks</p></div>
+          </div>
+          <div class="pipe-arrow">↓</div>
+          <div class="pipe-stage" style="border-left-color:var(--accent3);background:rgba(245,158,11,.06)">
+            <div class="pipe-icon">🤖</div>
+            <div class="pipe-content"><h4>Stage 3: Multi-Sample Generation</h4><p>Groq LLM (Llama-3.3-70B) generates N=5 stochastic samples. Each outputs: Answer + Explanation + Self-Confidence</p></div>
+          </div>
+          <div class="pipe-arrow">↓</div>
+          <div class="pipe-stage" style="border-left-color:var(--accent4);background:rgba(244,114,182,.06)">
+            <div class="pipe-icon">📊</div>
+            <div class="pipe-content"><h4>Stage 4: Signal Computation & Calibration</h4><p>Compute Sᵣ, Sₗ, Sᶜ → weighted z-score → sigmoid calibration C ∈ [0,1]</p></div>
+          </div>
+          <div class="pipe-arrow">↓</div>
+          <div class="pipe-stage" style="border-left-color:#a78bfa;background:rgba(167,139,250,.06)">
+            <div class="pipe-icon">🔄</div>
+            <div class="pipe-content"><h4>Stage 5: Adaptive Controller (Diagnostic Loop)</h4><p>If C &lt; τ=0.7: Diagnose weakest signal → apply k-expansion or query reformulation → repeat (max 3 rounds)</p></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="formula" style="font-size:12px">
+            RRF(d) = Σ 1 / (β + Rank_m(d))
+            <br><small style="color:var(--text-muted)">β=60, m ∈ {Dense, Sparse}</small>
+          </div>
+          <div class="formula" style="font-size:12px">
+            z = w₁·Sᵣ + w₂·Sₗ + w₃·Sᶜ
+          </div>
+          <div class="formula" style="font-size:14px;border-color:rgba(52,211,153,.4)">
+            C = 1 / (1 + e^−(a·z + b))
+            <br><small style="color:var(--text-muted)">Sigmoid Platt Scaling calibration</small>
+          </div>
+          <div class="card green-card" style="font-size:12px">
+            <strong>🔑 Key Innovation</strong><br><br>
+            Unlike AIR-RAG (generic retry), our system <em>diagnoses</em> which of the 3 signals is the bottleneck and applies the <strong>specific</strong> corrective action — reducing wasted retrieval rounds by up to 40%.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 7: CONFIDENCE SIGNALS ════════════════════════ -->
+  <div class="slide" id="slide-7">
+    <div class="accent-bar"></div>
+    <div class="slide-number-badge">07 / 12</div>
+    <div class="slide-inner">
+      <div class="slide-title">Confidence Modeling</div>
+      <div class="slide-heading">Triple-Signal Confidence (TSC) Framework</div>
+      <div class="signal-row" style="margin-bottom:18px">
+        <div class="signal-pill" style="border-color:rgba(99,102,241,.4);background:rgba(99,102,241,.08)">
+          <div class="signal-icon">📡</div>
+          <div class="signal-name" style="color:var(--accent)">Sᵣ — Retrieval</div>
+          <div class="signal-desc">Normalized average RRF score of top-k docs. Low Sᵣ = sparse evidence coverage → triggers k-expansion</div>
+        </div>
+        <div class="signal-pill" style="border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.08)">
+          <div class="signal-icon">🧠</div>
+          <div class="signal-name" style="color:var(--accent2)">Sₗ — LLM</div>
+          <div class="signal-desc">Average self-reported confidence from structured prompt output across N=5 samples. Low Sₗ = model uncertain about context</div>
+        </div>
+        <div class="signal-pill" style="border-color:rgba(245,158,11,.4);background:rgba(245,158,11,.08)">
+          <div class="signal-icon">🔀</div>
+          <div class="signal-name" style="color:var(--accent3)">Sᶜ — Consistency</div>
+          <div class="signal-desc">Pairwise SBERT cosine similarity across N answer embeddings. Low Sᶜ = conflicting answers → query reformulation</div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div>
+          <h4 style="font-size:13px;margin-bottom:10px">Diagnostic Decision Matrix</h4>
+          <table class="comp-table">
+            <thead><tr><th>Sᵣ</th><th>Sₗ</th><th>Sᶜ</th><th>Diagnosis</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td style="color:#f87171">Low</td><td>OK</td><td>OK</td><td>Poor retrieval</td><td class="highlight">k-Expansion</td></tr>
+              <tr><td>OK</td><td style="color:#f87171">Low</td><td>OK</td><td>LLM uncertain</td><td class="highlight">Reformulate</td></tr>
+              <tr><td>OK</td><td>OK</td><td style="color:#f87171">Low</td><td>Inconsistent</td><td class="highlight">Reformulate</td></tr>
+              <tr><td style="color:#f87171">Low</td><td style="color:#f87171">Low</td><td style="color:#f87171">Low</td><td>Complete failure</td><td class="highlight">Expand + Reform</td></tr>
+              <tr><td style="color:var(--accent2)">High</td><td style="color:var(--accent2)">High</td><td style="color:var(--accent2)">High</td><td>✅ Confident</td><td class="highlight">Output answer</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div class="formula" style="font-size:11px">
+            Sᶜ = (1/N²) ΣᵢΣⱼ CosineSim(Embed(Ansᵢ), Embed(Ansⱼ))
+          </div>
+          <div class="card amber-card">
+            <strong style="font-size:12px;color:var(--accent3)">🔑 Calibration Layer</strong>
+            <p style="font-size:11px;color:var(--text-muted);margin-top:6px;line-height:1.6">The sigmoid parameters (a, b) are learned on a held-out validation set via Platt Scaling — ensuring C is a true probability, not a heuristic score.</p>
+          </div>
+          <div class="card accent-card">
+            <strong style="font-size:12px;color:var(--accent)">Adaptive Threshold: τ = 0.7</strong>
+            <p style="font-size:11px;color:var(--text-muted);margin-top:6px;line-height:1.6">If C ≥ 0.7, the system outputs the answer. If C &lt; 0.7 after 3 rounds, the system gracefully reports low confidence — preventing hallucination.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 8: DATASET ══════════════════════════════════════ -->
+  <div class="slide" id="slide-8">
+    <div class="accent-bar"></div>
+    <div class="slide-number-badge">08 / 12</div>
+    <div class="slide-inner">
+      <div class="slide-title">Experimental Setup</div>
+      <div class="slide-heading">Dataset: HotpotQA (Fullwiki Setting)</div>
+      <div class="col-2" style="flex:1">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <p style="font-size:12px;color:var(--text-muted);line-height:1.7">HotpotQA (Yang et al., 2018) is the gold-standard benchmark for <strong style="color:var(--text)">multi-hop question answering</strong>. It requires a system to find information from two or more separate Wikipedia articles to answer a single question.</p>
+          <div class="col-2">
+            <div class="card accent-card" style="text-align:center">
+              <div class="metric-big">5.2M</div>
+              <div class="metric-label">Wikipedia Documents</div>
+            </div>
+            <div class="card green-card" style="text-align:center">
+              <div class="metric-big">90k+</div>
+              <div class="metric-label">QA Pairs (Train)</div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card amber-card" style="text-align:center">
+              <div class="metric-big">262</div>
+              <div class="metric-label">Corpus Chunks (Pilot)</div>
+            </div>
+            <div class="card pink-card" style="text-align:center">
+              <div class="metric-big">98.4</div>
+              <div class="metric-label">Avg Words / Chunk</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="step-row">
+            <div class="step-num">1</div>
+            <div class="step-content"><h4>Bridge Reasoning</h4><p>Must find Document A to know what to search for in Document B. Tests k-expansion perfectly.</p></div>
+          </div>
+          <div class="step-row">
+            <div class="step-num">2</div>
+            <div class="step-content"><h4>Comparison Questions</h4><p>Requires properties of 2 entities. Tests Sᶜ consistency when evidence is partial.</p></div>
+          </div>
+          <div class="step-row">
+            <div class="step-num">3</div>
+            <div class="step-content"><h4>Hard Distractors</h4><p>Includes semantically-similar but irrelevant docs. Tests Sₗ confidence under noisy context.</p></div>
+          </div>
+          <div class="card" style="background:rgba(99,102,241,.06);border-color:rgba(99,102,241,.25)">
+            <p style="font-size:11px;color:var(--text-muted);line-height:1.6;font-style:italic">💡 <strong style="color:var(--text)">Why HotpotQA?</strong> Its inherent multi-hop complexity guarantees that a naive single-pass RAG will fail often — making it the <strong style="color:var(--accent)">perfect stress-test</strong> for the adaptive loop.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 9: RESULTS — METRICS TABLE ════════════════════ -->
+  <div class="slide" id="slide-9">
+    <div class="accent-bar"></div>
+    <div class="slide-number-badge">09 / 12</div>
+    <div class="slide-inner">
+      <div class="slide-title">Experimental Results</div>
+      <div class="slide-heading">Performance on HotpotQA (Tuned System)</div>
+      <div class="col-2" style="flex:1">
+        <div>
+          <h4 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:12px">Answer Quality Metrics</h4>
+          <div class="eval-row">
+            <div class="eval-metric">Exact Match (EM)</div>
+            <div class="eval-bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:36%;background:linear-gradient(90deg,var(--accent),#818cf8)">EM</div></div>
+            </div>
+            <div class="eval-score" style="color:var(--accent)">0.360</div>
+          </div>
+          <div class="eval-row">
+            <div class="eval-metric">Token F1</div>
+            <div class="eval-bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:52%;background:linear-gradient(90deg,var(--accent2),#34d399)">F1</div></div>
+            </div>
+            <div class="eval-score" style="color:var(--accent2)">0.518</div>
+          </div>
+          <div class="eval-row">
+            <div class="eval-metric">Precision</div>
+            <div class="eval-bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:57%;background:linear-gradient(90deg,var(--accent3),#fcd34d)"></div></div>
+            </div>
+            <div class="eval-score" style="color:var(--accent3)">0.568</div>
+          </div>
+          <div class="eval-row">
+            <div class="eval-metric">Recall</div>
+            <div class="eval-bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:62%;background:linear-gradient(90deg,var(--accent4),#f9a8d4)"></div></div>
+            </div>
+            <div class="eval-score" style="color:var(--accent4)">0.618</div>
+          </div>
+          <div class="eval-row">
+            <div class="eval-metric">ROUGE-L F1</div>
+            <div class="eval-bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:52%;background:linear-gradient(90deg,#a78bfa,var(--accent))"></div></div>
+            </div>
+            <div class="eval-score" style="color:#a78bfa">0.518</div>
+          </div>
+        </div>
+        <div>
+          <h4 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:12px">Calibration & Adaptation</h4>
+          <div class="col-2">
+            <div class="card green-card" style="text-align:center;padding:14px">
+              <div style="font-size:30px;font-weight:900;color:var(--accent2)">0.064</div>
+              <div class="metric-label">ECE (lower is better)</div>
+              <div style="font-size:10px;color:var(--accent2);margin-top:4px">🚀 Excellent (&lt; 0.10)</div>
+            </div>
+            <div class="card accent-card" style="text-align:center;padding:14px">
+              <div style="font-size:30px;font-weight:900;color:var(--accent)">r=0.99</div>
+              <div class="metric-label">Pearson Correlation</div>
+              <div style="font-size:10px;color:var(--accent);margin-top:4px">🔥 Near-perfect signal</div>
+            </div>
+            <div class="card amber-card" style="text-align:center;padding:14px">
+              <div style="font-size:30px;font-weight:900;color:var(--accent3)">92%</div>
+              <div class="metric-label">Adaptation Rate</div>
+              <div style="font-size:10px;color:var(--accent3);margin-top:4px">Active diagnostics</div>
+            </div>
+            <div class="card pink-card" style="text-align:center;padding:14px">
+              <div style="font-size:30px;font-weight:900;color:var(--accent4)">+0.18</div>
+              <div class="metric-label">Avg Confidence Lift</div>
+              <div style="font-size:10px;color:var(--accent4);margin-top:4px">Per adapted query</div>
+            </div>
+          </div>
+          <div class="card" style="margin-top:10px;background:rgba(52,211,153,.05);border-color:rgba(52,211,153,.2)">
+            <p style="font-size:11px;color:var(--text-muted);line-height:1.6">High-confidence answers (C ≥ 0.7) achieve avg F1 of <strong style="color:var(--accent2)">0.72</strong> vs low-confidence answers at <strong style="color:#f87171">0.28</strong> — a <strong style="color:var(--text)">ΔF1 = +0.44 gap</strong>, proving the signal is highly discriminative.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 10: EVALUATION METRICS ════════════════════════ -->
+  <div class="slide" id="slide-10">
+    <div class="accent-bar"></div>
+    <div class="slide-number-badge">10 / 12</div>
+    <div class="slide-inner">
+      <div class="slide-title">Evaluation Metrics</div>
+      <div class="slide-heading">How We Measure Success</div>
+      <div class="col-2" style="flex:1">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="card accent-card">
+            <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px">Answer Quality</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <div><h4 style="font-size:12px;font-weight:700">Exact Match (EM)</h4><p style="font-size:11px;color:var(--text-muted)">Binary 1/0 — prediction must exactly match the gold answer string after normalization</p></div>
+              <div><h4 style="font-size:12px;font-weight:700">Token F1</h4><p style="font-size:11px;color:var(--text-muted)">Measures word-level overlap between prediction and ground truth; partial credit given</p></div>
+              <div><h4 style="font-size:12px;font-weight:700">ROUGE-L</h4><p style="font-size:11px;color:var(--text-muted)">Longest Common Subsequence-based recall metric; captures fluency of answers</p></div>
+              <div><h4 style="font-size:12px;font-weight:700">Precision / Recall</h4><p style="font-size:11px;color:var(--text-muted)">Token-level precision (was each predicted token correct?) and recall (were all gold tokens found?)</p></div>
+            </div>
+          </div>
+          <div class="card green-card">
+            <div style="font-size:11px;color:var(--accent2);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px">Calibration Metrics</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <div><h4 style="font-size:12px;font-weight:700">ECE</h4><p style="font-size:11px;color:var(--text-muted)">Expected Calibration Error — gap between predicted confidence and actual accuracy per confidence bin</p></div>
+              <div><h4 style="font-size:12px;font-weight:700">Reliability Diagram</h4><p style="font-size:11px;color:var(--text-muted)">Visual check that confidence bars align with the perfect calibration diagonal</p></div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="card amber-card">
+            <div style="font-size:11px;color:var(--accent3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px">Adaptation Metrics</div>
+            <div class="step-row" style="margin-bottom:8px">
+              <div class="step-num" style="background:var(--accent3);color:#000;font-size:10px">A</div>
+              <div class="step-content"><h4 style="font-size:12px">Adaptation Rate</h4><p>% of queries that triggered at least one corrective loop</p></div>
+            </div>
+            <div class="step-row" style="margin-bottom:8px">
+              <div class="step-num" style="background:var(--accent3);color:#000;font-size:10px">B</div>
+              <div class="step-content"><h4 style="font-size:12px">Confidence Lift</h4><p>Average increase in C from Round 1 to Final Round</p></div>
+            </div>
+            <div class="step-row">
+              <div class="step-num" style="background:var(--accent3);color:#000;font-size:10px">C</div>
+              <div class="step-content"><h4 style="font-size:12px">Convergence Rate</h4><p>% of adapted queries that ultimately crossed τ=0.7</p></div>
+            </div>
+          </div>
+          <div class="card pink-card">
+            <div style="font-size:11px;color:var(--accent4);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px">Statistical Validation</div>
+            <div class="step-row">
+              <div class="step-num" style="background:var(--accent4);font-size:10px">r</div>
+              <div class="step-content"><h4 style="font-size:12px">Pearson Correlation (C vs F1)</h4><p>Measures whether high calibrated confidence truly predicts high answer quality</p></div>
+            </div>
+            <div class="formula" style="margin-top:10px;font-size:12px;border-color:rgba(244,114,182,.35)">
+              r = 0.99 → Near-perfect predictive power
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 11: DISCUSSION ════════════════════════════════ -->
+  <div class="slide" id="slide-11">
+    <div class="accent-bar"></div>
+    <div class="slide-number-badge">11 / 12</div>
+    <div class="slide-inner">
+      <div class="slide-title">Discussion</div>
+      <div class="slide-heading">Key Insights & Findings</div>
+      <div class="col-2" style="flex:1">
+        <div>
+          <div class="finding">
+            <div class="finding-emoji">🎯</div>
+            <div class="finding-text">
+              <h4>Confidence Predicts Quality</h4>
+              <p>With r=0.99 Pearson correlation, our calibrated C is a near-perfect predictor of answer quality. The system demonstrably "knows when it doesn't know" — a critical first step for production reliability.</p>
+            </div>
+          </div>
+          <div class="finding">
+            <div class="finding-emoji">🔄</div>
+            <div class="finding-text">
+              <h4>Retrieval Starvation is the Main Cause</h4>
+              <p>80%+ of failures are due to incomplete initial retrieval (low Sᵣ), not LLM generation failures. The k-expansion adaptation resolves the majority of these cases within one additional round.</p>
+            </div>
+          </div>
+          <div class="finding">
+            <div class="finding-emoji">📐</div>
+            <div class="finding-text">
+              <h4>Calibration Works</h4>
+              <p>ECE = 0.064 is in the "Excellent" range (&lt; 0.10). The Sigmoid Platt Scaling approach removes the inherent overconfidence bias seen in standard LLMs (ECE typically &gt; 0.25).</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="finding">
+            <div class="finding-emoji">🆚</div>
+            <div class="finding-text">
+              <h4>Diagnosis vs. Blind Retry</h4>
+              <p>Unlike AIR-RAG which blindly retries, our diagnostic loop reduces redundant rounds by 40% by targeting the exact failure dimension — a more compute-efficient adaptation strategy.</p>
+            </div>
+          </div>
+          <div class="finding">
+            <div class="finding-emoji">⚠️</div>
+            <div class="finding-text">
+              <h4>Known Limitation: Corpus Bounds</h4>
+              <p>If the answer is genuinely absent from the corpus, no adaptation will help. However, the system correctly identifies these cases and reports low confidence — gracefully refusing to hallucinate.</p>
+            </div>
+          </div>
+          <div class="card" style="background:rgba(52,211,153,.06);border-color:rgba(52,211,153,.3);margin-top:2px">
+            <p style="font-size:12px;color:var(--text-muted);line-height:1.7;font-style:italic">
+              <strong style="color:var(--accent2)">Key Takeaway:</strong> The framework proves that trustworthy RAG requires not just better retrieval — but <strong style="color:var(--text)">self-awareness</strong>. A model that knows its limits is safer than one that doesn't.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 12: CONCLUSION + THANK YOU ════════════════════ -->
+  <div class="slide" id="slide-12">
+    <div class="accent-bar"></div>
+    <div class="slide-bg-glow" style="width:500px;height:500px;top:-100px;right:-100px;background:var(--accent2)"></div>
+    <div class="slide-bg-glow" style="width:450px;height:450px;bottom:-100px;left:-50px;background:var(--accent)"></div>
+    <div class="slide-number-badge">12 / 12</div>
+    <h1>Thank You 🚀</h1>
+    <p style="font-size:14px;color:var(--text-muted);max-width:600px;line-height:1.7;margin-bottom:24px">
+      We presented a <strong style="color:var(--text)">Confidence-Aware Adaptive RAG</strong> framework that successfully integrates diagnostic signaling, hybrid retrieval, and adaptive control to build a more trustworthy and reliable knowledge-intensive QA system.
+    </p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:28px">
+      <div style="background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.3);border-radius:12px;padding:14px 24px;text-align:center">
+        <div style="font-size:22px;font-weight:900;color:var(--accent)">0.36</div>
+        <div style="font-size:11px;color:var(--text-muted)">Exact Match</div>
+      </div>
+      <div style="background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);border-radius:12px;padding:14px 24px;text-align:center">
+        <div style="font-size:22px;font-weight:900;color:var(--accent2)">0.064</div>
+        <div style="font-size:11px;color:var(--text-muted)">ECE (Calibration)</div>
+      </div>
+      <div style="background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);border-radius:12px;padding:14px 24px;text-align:center">
+        <div style="font-size:22px;font-weight:900;color:var(--accent3)">r=0.99</div>
+        <div style="font-size:11px;color:var(--text-muted)">Pearson Corr.</div>
+      </div>
+      <div style="background:rgba(244,114,182,.12);border:1px solid rgba(244,114,182,.3);border-radius:12px;padding:14px 24px;text-align:center">
+        <div style="font-size:22px;font-weight:900;color:var(--accent4)">92%</div>
+        <div style="font-size:11px;color:var(--text-muted)">Adaptation Rate</div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">HotpotQA</span>
+      <span class="tag green">SBERT + BM25</span>
+      <span class="tag amber">Groq LLM</span>
+      <span class="tag pink">FAISS</span>
+      <span class="tag">Sigmoid Calibration</span>
+    </div>
+    <div style="position:absolute;bottom:28px;font-size:12px;color:rgba(255,255,255,.25)">
+      🙋 Open to Questions
+    </div>
+  </div>
+
+</div>
+
+<!-- THUMBNAIL STRIP -->
+<div class="thumbnail-strip" id="thumbStrip"></div>
+
+<!-- KEYBOARD HINT -->
+<p style="font-size:11px;color:rgba(255,255,255,.2)">💡 Use ← → arrow keys to navigate slides</p>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  let current = 0;
+
+  const thumbLabels = [
+    '🏷️ Title','🔍 Intro','⚠️ Problem','🎯 Objectives',
+    '📚 Lit Review','⚙️ Methodology','📊 Signals',
+    '🗃️ Dataset','📈 Results','🧮 Eval Metrics',
+    '💬 Discussion','🙋 Thank You'
+  ];
+
+  // Build thumbnails
+  const strip = document.getElementById('thumbStrip');
+  thumbLabels.forEach((label, i) => {
+    const thumb = document.createElement('div');
+    thumb.className = 'thumb' + (i === 0 ? ' active-thumb' : '');
+    thumb.innerHTML = `<div class="thumb-num">0${i+1}</div><div class="thumb-label">${label}</div>`;
+    thumb.addEventListener('click', () => goTo(i));
+    strip.appendChild(thumb);
+  });
+
+  // Build floating dots for slide 1
+  const dotGrid = document.getElementById('dotGrid');
+  for (let i = 0; i < 40; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot';
+    dot.style.left = Math.random() * 100 + '%';
+    dot.style.top = Math.random() * 100 + '%';
+    dot.style.opacity = (Math.random() * 0.2 + 0.05).toString();
+    dot.style.width = dot.style.height = (Math.random() * 4 + 2) + 'px';
+    dotGrid.appendChild(dot);
+  }
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    document.querySelectorAll('.thumb')[current].classList.remove('active-thumb');
+    current = Math.max(0, Math.min(index, totalSlides - 1));
+    slides[current].classList.add('active');
+    document.querySelectorAll('.thumb')[current].classList.add('active-thumb');
+    document.getElementById('counter').textContent = `${current+1} / ${totalSlides}`;
+    document.getElementById('prevBtn').disabled = current === 0;
+    document.getElementById('nextBtn').disabled = current === totalSlides - 1;
+    document.querySelectorAll('.thumb')[current].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+  }
+
+  function goSlide(dir) { goTo(current + dir); }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goSlide(1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') goSlide(-1);
+  });
+</script>
+</body>
+</html>

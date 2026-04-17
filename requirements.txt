@@ -1,0 +1,57 @@
+# ─────────────────────────────────────────────────────────────
+# Confidence-Aware Adaptive RAG — Requirements
+# ─────────────────────────────────────────────────────────────
+
+# ── Core Dataset & NLP ──────────────────────────────────────
+datasets==2.19.1
+transformers==4.41.2
+tokenizers==0.19.1
+
+# ── Sentence Embeddings + Dense Retrieval ───────────────────
+sentence-transformers==2.7.0
+faiss-cpu==1.8.0              # swap for faiss-gpu if CUDA is available
+
+# ── Sparse Retrieval ─────────────────────────────────────────
+rank-bm25==0.2.2
+
+# ── Sentence Embeddings (Dense Retrieval) ───────────────────
+sentence-transformers==2.7.0
+faiss-cpu==1.8.0          # use faiss-gpu if CUDA available
+
+# ── Scientific NLP / Keyword Extraction ─────────────────────
+keybert==0.8.3
+scikit-learn==1.5.0
+
+# ── Language Model Inference ────────────────────────────────
+openai==1.30.1             # optional: for GPT-based generation
+httpx==0.27.2              # pin for OpenAI SDK compatibility (<0.28)
+anthropic==0.26.0          # optional: for Claude-based generation
+torch==2.3.0               # PyTorch for local models
+
+# ── Evaluation Metrics ──────────────────────────────────────
+rouge-score==0.1.2
+evaluate==0.4.2
+bert-score==0.3.13
+nltk==3.8.1
+
+# ── Data Handling & Utilities ───────────────────────────────
+numpy==1.26.4
+pandas==2.2.2
+tqdm==4.66.4
+jsonlines==4.0.0
+
+# ── Configuration Management ────────────────────────────────
+pyyaml==6.0.1
+python-dotenv==1.0.1
+
+# ── Logging & Experiment Tracking ───────────────────────────
+loguru==0.7.2
+wandb==0.17.0              # optional: experiment tracking
+
+# ── Jupyter Notebooks (optional) ────────────────────────────
+jupyter==1.0.0
+ipykernel==6.29.4
+
+# ── Web Interface (Flask) ────────────────────────────────────
+flask==3.0.3
+flask-cors==4.0.1

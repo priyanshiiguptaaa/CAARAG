@@ -1,0 +1,1052 @@
+[
+  {
+    "query": "Were Scott Derrickson and Ed Wood of the same nationality?",
+    "gold_answer": "yes",
+    "retrieved_docs": [
+      {
+        "chunk_id": "Lord Steppington_0",
+        "text": "lord steppington is the debut studio album by california-based hip hop duo step brothers (rapper/producers the alchemist and evidence). the album was released on january 21, 2014 by rhymesayers entertainment. the record was produced entirely by alchemist and evidence, and includes guest appearances from action bronson, roc marciano, blu, fashawn, rakaa, oh no, styles p, domo genesis and the whooliganz – alchemist's old group which included actor scott caan.",
+        "source": "Lord Steppington",
+        "keywords": [
+          "step brothers",
+          "lord steppington",
+          "steppington debut",
+          "steppington",
+          "alchemist evidence"
+        ],
+        "length": 69
+      },
+      {
+        "chunk_id": "Samuel D. Jackson_0",
+        "text": "samuel dillon jackson (may 28, 1895march 8, 1951) was a united states senator from indiana. born near zanesville, indiana, he attended the public schools of fort wayne and graduated from a predecessor of the now indiana university robert h. mckinney school of law in indianapolis in 1917, gaining admission to the bar the same year. during the first world war, he served as a captain of infantry from 1917 to 1919, and engaged in the practice of law at fort wayne in 1919. he was prosecuting attorney of allen county from 1924 to 1928. he ran unsuccessfully as a democrat for election in 1928 to the seventy-first congress, and was attorney general of indiana from 1940 to 1941. on january 28, 1944, he was appointed as a democrat to the u.s. senate to fill the vacancy caused by the death of frederick van nuys and served from january 28, 1944,",
+        "source": "Samuel D. Jackson",
+        "keywords": [
+          "dillon jackson",
+          "senator indiana",
+          "samuel dillon",
+          "wayne 1919",
+          "dillon"
+        ],
+        "length": 150
+      },
+      {
+        "chunk_id": "Joe Heck_0",
+        "text": "joseph john “joe” heck (born october 30, 1961) is an american politician, physician, and u.s. army brigadier general who had served as the u.s. representative for nevada's 3rd congressional district from 2011 to 2017. heck, a member of the republican party, is a board-certified physician and served as a nevada state senator from 2004-08. he ran unsuccessfully against democrat catherine cortez masto in the general election for the open nevada united states senate seat in 2016. in the same year, heck made headlines by joining a long list of republicans who opposed the gop nominee for president, donald trump.",
+        "source": "Joe Heck",
+        "keywords": [
+          "representative nevada",
+          "joe heck",
+          "served nevada",
+          "nevada state",
+          "gop nominee"
+        ],
+        "length": 99
+      },
+      {
+        "chunk_id": "A. C. Newman_0",
+        "text": "allan carl newman (born april 14, 1968) is a canadian musician and singer–songwriter. he was a member of the indie rock bands superconductor and zumpano in the 1990s. following the breakup of those bands, he reemerged as the leader of the new pornographers in 2000, a band who have enjoyed commercial and critical success.",
+        "source": "A. C. Newman",
+        "keywords": [
+          "carl newman",
+          "newman",
+          "newman born",
+          "allan carl",
+          "new pornographers"
+        ],
+        "length": 54
+      },
+      {
+        "chunk_id": "Steve Clark (American football)_0",
+        "text": "stephen spence clark (born august 2, 1960) is a former professional american football player who played [[defensive tackle]and offensive guard ] for five seasons for the [[miami dolphins]]. he also played on two state championship teams in high school which were a combined (25-1) over two years and was a five team all-american including \"parade magazine\", he was also named most valuable player of the state of utah. at the university of utah he was named two time all-wac defensive tackle, defensive most valuable player of the western athletic conference and first team all-american. he also played in the east-west shrine game and was named mvp of the senior bowl. after the senior bowl he was drafted by don shula and the miami dolphins, his second year in the nfl he played both ways in a pre-season game and coach shula knew he had a guy that could back up",
+        "source": "Steve Clark (American football)",
+        "keywords": [
+          "spence clark",
+          "bowl drafted",
+          "stephen spence",
+          "defensive tackle",
+          "spence"
+        ],
+        "length": 150
+      }
+    ],
+    "retrieval_scores": [
+      0.02903091162443161,
+      0.02678571455180645,
+      0.024286136031150818,
+      0.023889463394880295,
+      0.02343107759952545
+    ],
+    "generation": {
+      "query": "Were Scott Derrickson and Ed Wood of the same nationality?",
+      "final_answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+      "final_confidence": 0.79,
+      "all_samples": [
+        {
+          "confidence": 0.79,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.79\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.7,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.7\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.77,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.77\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        }
+      ],
+      "context_used": "[Doc 1] lord steppington is the debut studio album by california-based hip hop duo step brothers (rapper/producers the alchemist and evidence). the album was released on january 21, 2014 by rhymesayers entertainment. the record was produced entirely by alchemist and evidence, and includes guest appearances from action bronson, roc marciano, blu, fashawn, rakaa, oh no, styles p, domo genesis and the whooliganz – alchemist's old group which included actor scott caan.\n\n[Doc 2] samuel dillon jackson (may 28, 1895march 8, 1951) was a united states senator from indiana. born near zanesville, indiana, he attended the public schools of fort wayne and graduated from a predecessor of the now indiana university robert h. mckinney school of law in indianapolis in 1917, gaining admission to the bar the same year. during the first world war, he served as a captain of infantry from 1917 to 1919, and engaged in the practice of law at fort wayne in 1919. he was prosecuting attorney of allen county from 1924 to 1928. he ran unsuccessfully as a democrat for election in 1928 to the seventy-first congress, and was attorney general of indiana from 1940 to 1941. on january 28, 1944, he was appointed as a democrat to the u.s. senate to fill the vacancy caused by the death of frederick van nuys and served from january 28, 1944,\n\n[Doc 3] joseph john “joe” heck (born october 30, 1961) is an american politician, physician, and u.s. army brigadier general who had served as the u.s. representative for nevada's 3rd congressional district from 2011 to 2017. heck, a member of the republican party, is a board-certified physician and served as a nevada state senator from 2004-08. he ran unsuccessfully against democrat catherine cortez masto in the general election for the open nevada united states senate seat in 2016. in the same year, heck made headlines by joining a long list of republicans who opposed the gop nominee for president, donald trump.\n\n[Doc 4] allan carl newman (born april 14, 1968) is a canadian musician and singer–songwriter. he was a member of the indie rock bands superconductor and zumpano in the 1990s. following the breakup of those bands, he reemerged as the leader of the new pornographers in 2000, a band who have enjoyed commercial and critical success.\n\n[Doc 5] stephen spence clark (born august 2, 1960) is a former professional american football player who played [[defensive tackle]and offensive guard ] for five seasons for the [[miami dolphins]]. he also played on two state championship teams in high school which were a combined (25-1) over two years and was a five team all-american including \"parade magazine\", he was also named most valuable player of the state of utah. at the university of utah he was named two time all-wac defensive tackle, defensive most valuable player of the western athletic conference and first team all-american. he also played in the east-west shrine game and was named mvp of the senior bowl. after the senior bowl he was drafted by don shula and the miami dolphins, his second year in the nfl he played both ways in a pre-season game and coach shula knew he had a guy that could back up"
+    },
+    "timestamp": 1775020570.2282217
+  },
+  {
+    "query": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+    "gold_answer": "Chief of Protocol",
+    "retrieved_docs": [
+      {
+        "chunk_id": "Nathalia Ramos_0",
+        "text": "nathalia norah ramos cohen (born july 3, 1992) is a spanish-australian actress, who also holds u.s. citizenship. ramos is known for her portrayals of yasmin in the 2007 film \"\", jill in the 2013 film \"the damned\", and lead character nina martin in the 2011 nickelodeon television series \"house of anubis\".",
+        "source": "Nathalia Ramos",
+        "keywords": [
+          "portrayals yasmin",
+          "film jill",
+          "yasmin",
+          "nathalia norah",
+          "jill"
+        ],
+        "length": 51
+      },
+      {
+        "chunk_id": "Courtney Love filmography_0",
+        "text": "courtney love is an american musician and actress who began her professional career in film in 1986 with a supporting role in alex cox's \"sid and nancy\" (1986); she had prior studied film with experimental director george kuchar at the san francisco art institute in 1984, and appeared in one of kuchar's short films. after pursuing music and having a successful career as the frontwoman of alternative rock band hole, love also had intermittent roles in films, most notably receiving critical attention for her performance as althea flynt in miloš forman's 1996 biopic \"the people vs. larry flynt\", which earned her a golden globe nomination for best actress, as well as awards from the boston, chicago, new york, and los angeles film critics associations. love later appeared among an ensemble cast in \"200 cigarettes\" (1998), as well as in a leading role in \"man on the moon\" (1999) alongside jim",
+        "source": "Courtney Love filmography",
+        "keywords": [
+          "courtney love",
+          "larry flynt",
+          "flynt miloš",
+          "sid nancy",
+          "musician actress"
+        ],
+        "length": 150
+      },
+      {
+        "chunk_id": "Louis Stevens (writer)_0",
+        "text": "louis stevens (december 25, 1896 – september 29, 1963) was an american screenwriter of the silent and sound film eras. born on christmas day 1896 in riga, latvia, stevens entered the film industry in 1920 when he co-wrote the silent film \"a world of folly\", with jane grogan. in his over 30-year career he worked on over 40 screenplays, as well as several film shorts and two television series. among his more notable films were: contributing to the script of the 1931 version of \"dracula\", starring bela lugosi; co-writing the story for what price hollywood? (1932); the screenplay for the 1940 western, \"colorado\", directed by joseph kane, and starring roy rogers; the story for \"streets of laredo\" (1949), starring william holden, macdonald carey and william bendix; 1951's \"the cimarron kid\", starring audie murphy; and \"horizons west\" (1952), starring robert ryan, julie adams, and rock hudson. stevens' final screenplay was for",
+        "source": "Louis Stevens (writer)",
+        "keywords": [
+          "screenplay 1940",
+          "1949 starring",
+          "screenwriter silent",
+          "1932 screenplay",
+          "american screenwriter"
+        ],
+        "length": 150
+      },
+      {
+        "chunk_id": "Bruce Harwood_0",
+        "text": "bruce harwood (born april 29, 1963) is a canadian character actor best known for his role of john fitzgerald byers, one of the lone gunmen on the television series \"the x-files\". in addition to \"the x-files\", harwood portrayed byers in the spin-off series \"the lone gunmen\", which aired thirteen episodes in 2001. he has also played other roles with a strong similarity to byers, such as willis, a technician from the phoenix foundation in \"macgyver\", and government-scientist-turned-conspiracy-theorist dr. avery strong in \"the outer limits\". he was a founding member of the vancouver summer shakespeare festival, bard on the beach. he also starred in the 1988 movie \"earth star voyager\".",
+        "source": "Bruce Harwood",
+        "keywords": [
+          "portrayed byers",
+          "harwood portrayed",
+          "bruce harwood",
+          "byers willis",
+          "fitzgerald byers"
+        ],
+        "length": 109
+      },
+      {
+        "chunk_id": "Shane Stanley_0",
+        "text": "shane stanley (born june 15, 1971 in los angeles) is a multi-emmy award-winning filmmaker and founder of visual arts entertainment, a film and television production company based in los angeles. best known for executive producing \"gridiron gang\" starring dwayne \"the rock\" johnson for sony pictures and directing bret michaels music videos supporting the hit show \"rock of love\". stanley, a four-time nominee, was the youngest to ever win a production emmy award, winning his first at sixteen and his second at nineteen for his work on the desperate passage series. stanley made his directorial debut helming his own screenplay \"a sight for sore eyes\" which starred academy award nominee gary busey. besides being honored with dozens of prestigious awards and film festival honors, the film was invited to screen at the cannes film festival in 2005 and won best drama at the international family film festival in 2006.",
+        "source": "Shane Stanley",
+        "keywords": [
+          "shane stanley",
+          "eyes starred",
+          "stanley directorial",
+          "production emmy",
+          "directing bret"
+        ],
+        "length": 148
+      }
+    ],
+    "retrieval_scores": [
+      0.02919863536953926,
+      0.02878725901246071,
+      0.028629031032323837,
+      0.026685643941164017,
+      0.02633402682840824
+    ],
+    "generation": {
+      "query": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+      "final_answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+      "final_confidence": 0.76,
+      "all_samples": [
+        {
+          "confidence": 0.58,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.58\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.76,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.76\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.59,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.59\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        }
+      ],
+      "context_used": "[Doc 1] nathalia norah ramos cohen (born july 3, 1992) is a spanish-australian actress, who also holds u.s. citizenship. ramos is known for her portrayals of yasmin in the 2007 film \"\", jill in the 2013 film \"the damned\", and lead character nina martin in the 2011 nickelodeon television series \"house of anubis\".\n\n[Doc 2] courtney love is an american musician and actress who began her professional career in film in 1986 with a supporting role in alex cox's \"sid and nancy\" (1986); she had prior studied film with experimental director george kuchar at the san francisco art institute in 1984, and appeared in one of kuchar's short films. after pursuing music and having a successful career as the frontwoman of alternative rock band hole, love also had intermittent roles in films, most notably receiving critical attention for her performance as althea flynt in miloš forman's 1996 biopic \"the people vs. larry flynt\", which earned her a golden globe nomination for best actress, as well as awards from the boston, chicago, new york, and los angeles film critics associations. love later appeared among an ensemble cast in \"200 cigarettes\" (1998), as well as in a leading role in \"man on the moon\" (1999) alongside jim\n\n[Doc 3] louis stevens (december 25, 1896 – september 29, 1963) was an american screenwriter of the silent and sound film eras. born on christmas day 1896 in riga, latvia, stevens entered the film industry in 1920 when he co-wrote the silent film \"a world of folly\", with jane grogan. in his over 30-year career he worked on over 40 screenplays, as well as several film shorts and two television series. among his more notable films were: contributing to the script of the 1931 version of \"dracula\", starring bela lugosi; co-writing the story for what price hollywood? (1932); the screenplay for the 1940 western, \"colorado\", directed by joseph kane, and starring roy rogers; the story for \"streets of laredo\" (1949), starring william holden, macdonald carey and william bendix; 1951's \"the cimarron kid\", starring audie murphy; and \"horizons west\" (1952), starring robert ryan, julie adams, and rock hudson. stevens' final screenplay was for\n\n[Doc 4] bruce harwood (born april 29, 1963) is a canadian character actor best known for his role of john fitzgerald byers, one of the lone gunmen on the television series \"the x-files\". in addition to \"the x-files\", harwood portrayed byers in the spin-off series \"the lone gunmen\", which aired thirteen episodes in 2001. he has also played other roles with a strong similarity to byers, such as willis, a technician from the phoenix foundation in \"macgyver\", and government-scientist-turned-conspiracy-theorist dr. avery strong in \"the outer limits\". he was a founding member of the vancouver summer shakespeare festival, bard on the beach. he also starred in the 1988 movie \"earth star voyager\".\n\n[Doc 5] shane stanley (born june 15, 1971 in los angeles) is a multi-emmy award-winning filmmaker and founder of visual arts entertainment, a film and television production company based in los angeles. best known for executive producing \"gridiron gang\" starring dwayne \"the rock\" johnson for sony pictures and directing bret michaels music videos supporting the hit show \"rock of love\". stanley, a four-time nominee, was the youngest to ever win a production emmy award, winning his first at sixteen and his second at nineteen for his work on the desperate passage series. stanley made his directorial debut helming his own screenplay \"a sight for sore eyes\" which starred academy award nominee gary busey. besides being honored with dozens of prestigious awards and film festival honors, the film was invited to screen at the cannes film festival in 2005 and won best drama at the international family film festival in 2006."
+    },
+    "timestamp": 1775020570.887204
+  },
+  {
+    "query": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+    "gold_answer": "Animorphs",
+    "retrieved_docs": [
+      {
+        "chunk_id": "H2O: Footprints in the Sand_0",
+        "text": "ho: footprints in the sand is a japanese adult visual novel by makura that was released on june 23, 2006 for the pc as a dvd; a version playable on the playstation 2 under the title \"ho +\" followed on april 24, 2008 with adult content removed, but in its place will be additional scenarios and graphics not seen in the original release. \"ho\" is makura's first game; a sequel named \"root after and another\" was later produced in october 2007. the gameplay in \"ho\" follows a plot line that offers pre-determined scenarios with courses of interaction, and focuses on the appeal of the three female main characters. there are two modes of gameplay, the blindness effect and normal effect, where the former plays on the fact that the protagonist is blind, and the latter mode removes the added element of gameplay the blindness effect has. the story is broken",
+        "source": "H2O: Footprints in the Sand",
+        "keywords": [
+          "ho footprints",
+          "footprints sand",
+          "gameplay ho",
+          "ho makura",
+          "ho follows"
+        ],
+        "length": 150
+      },
+      {
+        "chunk_id": "Catching Fire_0",
+        "text": "catching fire is a 2009 science fiction young adult novel by the american novelist suzanne collins, the second book in \"the hunger games trilogy\". as the sequel to the 2008 bestseller \"the hunger games\", it continues the story of katniss everdeen and the post-apocalyptic nation of panem. following the events of the previous novel, a rebellion against the oppressive capitol has begun, and katniss and fellow tribute peeta mellark are forced to return to the arena in a special edition of the hunger games.",
+        "source": "Catching Fire",
+        "keywords": [
+          "hunger games",
+          "story katniss",
+          "book hunger",
+          "bestseller hunger",
+          "begun katniss"
+        ],
+        "length": 84
+      },
+      {
+        "chunk_id": "Wolfblood_0",
+        "text": "wolfblood is a british–german fantasy teen drama television series targeted at a young adult audience. created by debbie moon, it is a co-production between cbbc and zdf/zdfe. the television series revolves around the life of the species known as wolfbloods. they are creatures that have enhanced senses and look like humans but at can turn at will into wolves. their transformation is uncontrolled during a full moon, and they are at their weakest during \"the dark of the moon\", at a new moon. the television series focuses on their daily life and the challenges that they face to hide their secret. each series has new characters and concepts and overall the television series has an interesting storyline. to date, five complete series have aired. series 1 first aired on 10 september 2012 and concluded on 22 october 2012 and consisted of 13 episodes. series 2 first aired on 9 september",
+        "source": "Wolfblood",
+        "keywords": [
+          "wolfbloods",
+          "wolfblood",
+          "wolfbloods creatures",
+          "known wolfbloods",
+          "wolfblood british"
+        ],
+        "length": 150
+      },
+      {
+        "chunk_id": "Gabriel Levin_0",
+        "text": "gabriel levin (born 1948, paris) is a poet, translator and essayist. he lives in jerusalem with his wife and children. levin is one of the founding editors of ibis editions, a small non-profit press devoted to the publication of the literature of the levant, and serves as its editor-at-large. levin's work has appeared in numerous literary magazines, including pn review, the times literary supplement, the chicago review, raritan and parnassus. \"to these dark steps\", a volume written in response to operation \"cast lead\" (2008), was set by british composer alexander goehr for tenor, children's choir, and ensemble and premiered september 2012 at the cbso centre in birmingham. levin is the son of the american novelist meyer levin (best known for \"compulsion\", the first \"non-fiction novel\") and french novelist tereska torres.",
+        "source": "Gabriel Levin",
+        "keywords": [
+          "gabriel levin",
+          "levin work",
+          "levin",
+          "meyer levin",
+          "children levin"
+        ],
+        "length": 130
+      },
+      {
+        "chunk_id": "Pantun Sunda_0",
+        "text": "pantun sunda is a type of sundanese oral narrative performance interspersed with songs and music played on a \"kacapi\", a kind of zither. a pantun is intended to be recited during an evening-length performance during which a single performer relates the story of a hero’s initiation: the protagonist leaves his kingdom in order to seek experiences, beautiful princesses to become his wife, power, other kingdoms to subject, the realization of a dream (rosidi 1984a:143); after having succeeded in reaching his goal he finally returns to his kingdom. alongside descriptions of historical events, the stories often contain mythical elements. pantun were originally not written down, the bards often being illiterate and in many cases blind. originally the performances had a sacred character, as was clear from the offerings made at the beginning of the recitation and also from the content of the introductory part of the story, called rajah, which was",
+        "source": "Pantun Sunda",
+        "keywords": [
+          "pantun sunda",
+          "sundanese oral",
+          "pantun originally",
+          "written bards",
+          "pantun"
+        ],
+        "length": 150
+      }
+    ],
+    "retrieval_scores": [
+      0.03201844170689583,
+      0.0320020467042923,
+      0.03177805617451668,
+      0.03021353855729103,
+      0.027863778173923492
+    ],
+    "generation": {
+      "query": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+      "final_answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+      "final_confidence": 0.65,
+      "all_samples": [
+        {
+          "confidence": 0.65,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.65\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.41,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.41\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.3,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.3\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        }
+      ],
+      "context_used": "[Doc 1] ho: footprints in the sand is a japanese adult visual novel by makura that was released on june 23, 2006 for the pc as a dvd; a version playable on the playstation 2 under the title \"ho +\" followed on april 24, 2008 with adult content removed, but in its place will be additional scenarios and graphics not seen in the original release. \"ho\" is makura's first game; a sequel named \"root after and another\" was later produced in october 2007. the gameplay in \"ho\" follows a plot line that offers pre-determined scenarios with courses of interaction, and focuses on the appeal of the three female main characters. there are two modes of gameplay, the blindness effect and normal effect, where the former plays on the fact that the protagonist is blind, and the latter mode removes the added element of gameplay the blindness effect has. the story is broken\n\n[Doc 2] catching fire is a 2009 science fiction young adult novel by the american novelist suzanne collins, the second book in \"the hunger games trilogy\". as the sequel to the 2008 bestseller \"the hunger games\", it continues the story of katniss everdeen and the post-apocalyptic nation of panem. following the events of the previous novel, a rebellion against the oppressive capitol has begun, and katniss and fellow tribute peeta mellark are forced to return to the arena in a special edition of the hunger games.\n\n[Doc 3] wolfblood is a british–german fantasy teen drama television series targeted at a young adult audience. created by debbie moon, it is a co-production between cbbc and zdf/zdfe. the television series revolves around the life of the species known as wolfbloods. they are creatures that have enhanced senses and look like humans but at can turn at will into wolves. their transformation is uncontrolled during a full moon, and they are at their weakest during \"the dark of the moon\", at a new moon. the television series focuses on their daily life and the challenges that they face to hide their secret. each series has new characters and concepts and overall the television series has an interesting storyline. to date, five complete series have aired. series 1 first aired on 10 september 2012 and concluded on 22 october 2012 and consisted of 13 episodes. series 2 first aired on 9 september\n\n[Doc 4] gabriel levin (born 1948, paris) is a poet, translator and essayist. he lives in jerusalem with his wife and children. levin is one of the founding editors of ibis editions, a small non-profit press devoted to the publication of the literature of the levant, and serves as its editor-at-large. levin's work has appeared in numerous literary magazines, including pn review, the times literary supplement, the chicago review, raritan and parnassus. \"to these dark steps\", a volume written in response to operation \"cast lead\" (2008), was set by british composer alexander goehr for tenor, children's choir, and ensemble and premiered september 2012 at the cbso centre in birmingham. levin is the son of the american novelist meyer levin (best known for \"compulsion\", the first \"non-fiction novel\") and french novelist tereska torres.\n\n[Doc 5] pantun sunda is a type of sundanese oral narrative performance interspersed with songs and music played on a \"kacapi\", a kind of zither. a pantun is intended to be recited during an evening-length performance during which a single performer relates the story of a hero’s initiation: the protagonist leaves his kingdom in order to seek experiences, beautiful princesses to become his wife, power, other kingdoms to subject, the realization of a dream (rosidi 1984a:143); after having succeeded in reaching his goal he finally returns to his kingdom. alongside descriptions of historical events, the stories often contain mythical elements. pantun were originally not written down, the bards often being illiterate and in many cases blind. originally the performances had a sacred character, as was clear from the offerings made at the beginning of the recitation and also from the content of the introductory part of the story, called rajah, which was"
+    },
+    "timestamp": 1775020571.634275
+  },
+  {
+    "query": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+    "gold_answer": "no",
+    "retrieved_docs": [
+      {
+        "chunk_id": "Hounsfield Heights/Briar Hill, Calgary_0",
+        "text": "hounsfield heights/briar hill is an inner suburban neighbourhood in northwest calgary, alberta, canada. located north of the hillhurst and west hillhurst communities, the boundaries of the district are 16th avenue n (trans-canada highway)to the north; 14th street w to the east; lane north of 7th avenue n to 19th street w and 8th avenue n to the south; and crowchild trail, 12th avenue n, juniper road, and 22nd street w to the west. lions park c-train station is located within the community. the community is built on an escarpment and is popular for its views of downtown to the south and the rocky mountains to the west.",
+        "source": "Hounsfield Heights/Briar Hill, Calgary",
+        "keywords": [
+          "hounsfield heights",
+          "northwest calgary",
+          "hillhurst west",
+          "hounsfield",
+          "briar hill"
+        ],
+        "length": 107
+      },
+      {
+        "chunk_id": "Squire Park, Seattle_0",
+        "text": "squire park is a district in the city of seattle, in the u.s. state of washington. according to the squire park community council, it is bounded on the south by s. jackson street, on the west by 12th avenue and 12th avenue s., on the north by e. union street, and on the east by 23rd avenue and 23rd avenue s., placing it within what are commonly thought of as first hill and the central district. its main thoroughfares are e. jefferson and cherry streets and e. yesler way (east- and west-bound) and 14th avenue (north- and south-bound). swedish medical center's cherry hill campus is located here, seattle university, a jesuit university has part of its campus in squire park, as the admissions, some dormitories and athletics departments are east of 12th avenue.",
+        "source": "Squire Park, Seattle",
+        "keywords": [
+          "squire park",
+          "campus squire",
+          "hill campus",
+          "located seattle",
+          "park district"
+        ],
+        "length": 133
+      },
+      {
+        "chunk_id": "Berkeley, Denver_0",
+        "text": "berkeley is a city-center neighborhood in denver, colorado, located in the area traditionally called northwest denver, on the west side of interstate 25 and just south of interstate 70. the neighborhood is bounded by federal boulevard on the east, i-70 on the north, sheridan boulevard on the west and 38th avenue on the south. it is bordered by the west highland neighborhood on the south and is often erroneously grouped together with the highlands. the neighborhood contains two lakes surrounded by parks, one eponymous (stretching from 46th avenue to i-70 and sheridan boulevard to tennyson street) and rocky mountain lake park (stretching from lowell boulevard to grove street and 46th avenue to i-70). berkeley park also contains the william scheitler recreation center, run by the city and county of denver and including both indoor and outdoor public pools. berkeley has experienced rapid growth and rise in property values in the",
+        "source": "Berkeley, Denver",
+        "keywords": [
+          "berkeley park",
+          "berkeley city",
+          "pools berkeley",
+          "northwest denver",
+          "berkeley"
+        ],
+        "length": 150
+      },
+      {
+        "chunk_id": "Ritz-Carlton Jakarta_0",
+        "text": "the ritz-carlton jakarta is a hotel and skyscraper in jakarta, indonesia and 14th tallest building in jakarta. it is located in city center of jakarta, near mega kuningan, adjacent to the sister jw marriott hotel. it is operated by the ritz-carlton hotel company. the complex has two towers that comprises a hotel and the airlangga apartment respectively. the hotel was opened in 2005.",
+        "source": "Ritz-Carlton Jakarta",
+        "keywords": [
+          "carlton jakarta",
+          "jakarta hotel",
+          "skyscraper jakarta",
+          "ritz carlton",
+          "jakarta located"
+        ],
+        "length": 63
+      },
+      {
+        "chunk_id": "Greenwich Avenue_0",
+        "text": "greenwich avenue, formerly greenwich lane, is a southeast-northwest avenue located in the greenwich village neighborhood of manhattan, new york city. it extends from the intersection of 6th avenue and 8th street at its southeast end to its northwestern end at 8th avenue between 14th street and 13th street. it is sometimes confused with greenwich street. construction of west village park, bounded by greenwich avenue, 7th avenue, and 12th street, began in 2016.",
+        "source": "Greenwich Avenue",
+        "keywords": [
+          "greenwich village",
+          "greenwich avenue",
+          "avenue greenwich",
+          "greenwich street",
+          "greenwich lane"
+        ],
+        "length": 72
+      }
+    ],
+    "retrieval_scores": [
+      0.03125763311982155,
+      0.03100961446762085,
+      0.030886195600032806,
+      0.030477948486804962,
+      0.030017919838428497
+    ],
+    "generation": {
+      "query": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+      "final_answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+      "final_confidence": 0.68,
+      "all_samples": [
+        {
+          "confidence": 0.68,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.68\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.6,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.6\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.32,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.32\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        }
+      ],
+      "context_used": "[Doc 1] hounsfield heights/briar hill is an inner suburban neighbourhood in northwest calgary, alberta, canada. located north of the hillhurst and west hillhurst communities, the boundaries of the district are 16th avenue n (trans-canada highway)to the north; 14th street w to the east; lane north of 7th avenue n to 19th street w and 8th avenue n to the south; and crowchild trail, 12th avenue n, juniper road, and 22nd street w to the west. lions park c-train station is located within the community. the community is built on an escarpment and is popular for its views of downtown to the south and the rocky mountains to the west.\n\n[Doc 2] squire park is a district in the city of seattle, in the u.s. state of washington. according to the squire park community council, it is bounded on the south by s. jackson street, on the west by 12th avenue and 12th avenue s., on the north by e. union street, and on the east by 23rd avenue and 23rd avenue s., placing it within what are commonly thought of as first hill and the central district. its main thoroughfares are e. jefferson and cherry streets and e. yesler way (east- and west-bound) and 14th avenue (north- and south-bound). swedish medical center's cherry hill campus is located here, seattle university, a jesuit university has part of its campus in squire park, as the admissions, some dormitories and athletics departments are east of 12th avenue.\n\n[Doc 3] berkeley is a city-center neighborhood in denver, colorado, located in the area traditionally called northwest denver, on the west side of interstate 25 and just south of interstate 70. the neighborhood is bounded by federal boulevard on the east, i-70 on the north, sheridan boulevard on the west and 38th avenue on the south. it is bordered by the west highland neighborhood on the south and is often erroneously grouped together with the highlands. the neighborhood contains two lakes surrounded by parks, one eponymous (stretching from 46th avenue to i-70 and sheridan boulevard to tennyson street) and rocky mountain lake park (stretching from lowell boulevard to grove street and 46th avenue to i-70). berkeley park also contains the william scheitler recreation center, run by the city and county of denver and including both indoor and outdoor public pools. berkeley has experienced rapid growth and rise in property values in the\n\n[Doc 4] the ritz-carlton jakarta is a hotel and skyscraper in jakarta, indonesia and 14th tallest building in jakarta. it is located in city center of jakarta, near mega kuningan, adjacent to the sister jw marriott hotel. it is operated by the ritz-carlton hotel company. the complex has two towers that comprises a hotel and the airlangga apartment respectively. the hotel was opened in 2005.\n\n[Doc 5] greenwich avenue, formerly greenwich lane, is a southeast-northwest avenue located in the greenwich village neighborhood of manhattan, new york city. it extends from the intersection of 6th avenue and 8th street at its southeast end to its northwestern end at 8th avenue between 14th street and 13th street. it is sometimes confused with greenwich street. construction of west village park, bounded by greenwich avenue, 7th avenue, and 12th street, began in 2016."
+    },
+    "timestamp": 1775020572.260521
+  },
+  {
+    "query": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+    "gold_answer": "Greenwich Village, New York City",
+    "retrieved_docs": [
+      {
+        "chunk_id": "Max McLean_0",
+        "text": "max mclean is the founder and artistic director of fellowship for performing arts, a new york city-based producer of live theater from a christian worldview. mclean conceived, adapted, produced and starred in \"the screwtape letters\", a play based on the book by oxford and cambridge scholar, author and fantasy writer c.s. lewis. his stage adaptation of lewis’ \"the great divorce\" launched its national tour in late 2013. mclean adapted, co-directed and starred in \"c.s. lewis onstage: the most reluctant convert\", and co-wrote and produced \"martin luther on trial\". mclean also is the narrator of the listener's bible.",
+        "source": "Max McLean",
+        "keywords": [
+          "mclean narrator",
+          "max mclean",
+          "mclean adapted",
+          "writer lewis",
+          "mclean conceived"
+        ],
+        "length": 97
+      },
+      {
+        "chunk_id": "655 Park Avenue_0",
+        "text": "655 park avenue is a georgian-style co-op residential building on manhattan's upper east side, located on park avenue between 67th street and 68th street, adjacent to the park avenue armory. it was developed in 1924 by dwight p. robinson & company. the building at 655 park avenue was designed by architects james edwin ruthven carpenter, jr., often referred to by the initials \"j.e.r. carpenter\", and mott b. schmidt. carpenter is considered the leading architect for luxury residential high-rise buildings in new york city in the early 1900s, while schmidt is known for his buildings in the american georgian classical style, including sutton place and houses for new york city's society figures and business elite.",
+        "source": "655 Park Avenue",
+        "keywords": [
+          "avenue designed",
+          "655 park",
+          "park avenue",
+          "building manhattan",
+          "building 655"
+        ],
+        "length": 114
+      },
+      {
+        "chunk_id": "Courtney Love filmography_0",
+        "text": "courtney love is an american musician and actress who began her professional career in film in 1986 with a supporting role in alex cox's \"sid and nancy\" (1986); she had prior studied film with experimental director george kuchar at the san francisco art institute in 1984, and appeared in one of kuchar's short films. after pursuing music and having a successful career as the frontwoman of alternative rock band hole, love also had intermittent roles in films, most notably receiving critical attention for her performance as althea flynt in miloš forman's 1996 biopic \"the people vs. larry flynt\", which earned her a golden globe nomination for best actress, as well as awards from the boston, chicago, new york, and los angeles film critics associations. love later appeared among an ensemble cast in \"200 cigarettes\" (1998), as well as in a leading role in \"man on the moon\" (1999) alongside jim",
+        "source": "Courtney Love filmography",
+        "keywords": [
+          "courtney love",
+          "larry flynt",
+          "flynt miloš",
+          "sid nancy",
+          "musician actress"
+        ],
+        "length": 150
+      },
+      {
+        "chunk_id": "Greenwich Avenue_0",
+        "text": "greenwich avenue, formerly greenwich lane, is a southeast-northwest avenue located in the greenwich village neighborhood of manhattan, new york city. it extends from the intersection of 6th avenue and 8th street at its southeast end to its northwestern end at 8th avenue between 14th street and 13th street. it is sometimes confused with greenwich street. construction of west village park, bounded by greenwich avenue, 7th avenue, and 12th street, began in 2016.",
+        "source": "Greenwich Avenue",
+        "keywords": [
+          "greenwich village",
+          "greenwich avenue",
+          "avenue greenwich",
+          "greenwich street",
+          "greenwich lane"
+        ],
+        "length": 72
+      },
+      {
+        "chunk_id": "Hurt Locker (musical)_0",
+        "text": "hurt locker the musical is a fictional musical in the 2014 broadway premiere production of \"hedwig and the angry inch\". in the broadway performance of \"hedwig and the angry inch\" the musical opens with hedwig explaining that the musical only ran for a single night before closing during intermission, and that she has convinced a producer to let her perform in what would otherwise be an empty stage. fake playbills for the musical are used as props and are found scattered on the floor of the belasco theatre and contains advertisements for other fake musicals based on feature films such as \"gravity on ice\", \"container store: the musical\", \"the entire bible\", and \"soulcycle on broadway\". the playbills, which describe the musical as having \"explosions, negligible storytelling, camouflage and tits\", also state that the musical's cast included actors such as taye diggs (who would go on to play the role of",
+        "source": "Hurt Locker (musical)",
+        "keywords": [
+          "locker musical",
+          "broadway playbills",
+          "playbills musical",
+          "fake musicals",
+          "fictional musical"
+        ],
+        "length": 150
+      }
+    ],
+    "retrieval_scores": [
+      0.0317460335791111,
+      0.02964426949620247,
+      0.02964254468679428,
+      0.0292735043913126,
+      0.027106227353215218
+    ],
+    "generation": {
+      "query": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+      "final_answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+      "final_confidence": 0.6,
+      "all_samples": [
+        {
+          "confidence": 0.39,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.39\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.6,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.6\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.48,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.48\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        }
+      ],
+      "context_used": "[Doc 1] max mclean is the founder and artistic director of fellowship for performing arts, a new york city-based producer of live theater from a christian worldview. mclean conceived, adapted, produced and starred in \"the screwtape letters\", a play based on the book by oxford and cambridge scholar, author and fantasy writer c.s. lewis. his stage adaptation of lewis’ \"the great divorce\" launched its national tour in late 2013. mclean adapted, co-directed and starred in \"c.s. lewis onstage: the most reluctant convert\", and co-wrote and produced \"martin luther on trial\". mclean also is the narrator of the listener's bible.\n\n[Doc 2] 655 park avenue is a georgian-style co-op residential building on manhattan's upper east side, located on park avenue between 67th street and 68th street, adjacent to the park avenue armory. it was developed in 1924 by dwight p. robinson & company. the building at 655 park avenue was designed by architects james edwin ruthven carpenter, jr., often referred to by the initials \"j.e.r. carpenter\", and mott b. schmidt. carpenter is considered the leading architect for luxury residential high-rise buildings in new york city in the early 1900s, while schmidt is known for his buildings in the american georgian classical style, including sutton place and houses for new york city's society figures and business elite.\n\n[Doc 3] courtney love is an american musician and actress who began her professional career in film in 1986 with a supporting role in alex cox's \"sid and nancy\" (1986); she had prior studied film with experimental director george kuchar at the san francisco art institute in 1984, and appeared in one of kuchar's short films. after pursuing music and having a successful career as the frontwoman of alternative rock band hole, love also had intermittent roles in films, most notably receiving critical attention for her performance as althea flynt in miloš forman's 1996 biopic \"the people vs. larry flynt\", which earned her a golden globe nomination for best actress, as well as awards from the boston, chicago, new york, and los angeles film critics associations. love later appeared among an ensemble cast in \"200 cigarettes\" (1998), as well as in a leading role in \"man on the moon\" (1999) alongside jim\n\n[Doc 4] greenwich avenue, formerly greenwich lane, is a southeast-northwest avenue located in the greenwich village neighborhood of manhattan, new york city. it extends from the intersection of 6th avenue and 8th street at its southeast end to its northwestern end at 8th avenue between 14th street and 13th street. it is sometimes confused with greenwich street. construction of west village park, bounded by greenwich avenue, 7th avenue, and 12th street, began in 2016.\n\n[Doc 5] hurt locker the musical is a fictional musical in the 2014 broadway premiere production of \"hedwig and the angry inch\". in the broadway performance of \"hedwig and the angry inch\" the musical opens with hedwig explaining that the musical only ran for a single night before closing during intermission, and that she has convinced a producer to let her perform in what would otherwise be an empty stage. fake playbills for the musical are used as props and are found scattered on the floor of the belasco theatre and contains advertisements for other fake musicals based on feature films such as \"gravity on ice\", \"container store: the musical\", \"the entire bible\", and \"soulcycle on broadway\". the playbills, which describe the musical as having \"explosions, negligible storytelling, camouflage and tits\", also state that the musical's cast included actors such as taye diggs (who would go on to play the role of"
+    },
+    "timestamp": 1775020572.878486
+  },
+  {
+    "query": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+    "gold_answer": "YG Entertainment",
+    "retrieved_docs": [
+      {
+        "chunk_id": "Echosmith_0",
+        "text": "echosmith is an american, corporate indie pop band formed in february 2009 in chino, california. originally formed as a quartet of siblings, the band currently consists of sydney, noah and graham sierota, following the departure of eldest sibling jamie in late 2016. echosmith started first as \"ready set go!\" until they signed to warner bros. records in may 2012. they are best known for their hit song \"cool kids\", which reached number 13 on the \"billboard\" hot 100 and was certified double platinum by the riaa with over 1,200,000 sales in the united states and also double platinum by aria in australia. the song was warner bros. records' fifth-biggest-selling-digital song of 2014, with 1.3 million downloads sold. the band's debut album, \"talking dreams\", was released on october 8, 2013.",
+        "source": "Echosmith",
+        "keywords": [
+          "echosmith started",
+          "echosmith",
+          "echosmith american",
+          "2016 echosmith",
+          "song cool"
+        ],
+        "length": 129
+      },
+      {
+        "chunk_id": "Han Myeong-sook_0",
+        "text": "han myeong-sook (born march 24, 1944; korean: 한명숙 ] ) was the prime minister of south korea from april 2006 to march 2007. she is south korea's first female prime minister (second female prime minister overall if the acting premiership of chang sang is included). she was from the united new democratic party (undp) as a member of the korean national assembly (representative) for ilsan-gab, and is a graduate of ewha womans university in seoul with a degree in french literature. she resigned as prime minister on march 7, 2007 and declared her presidential candidacy. but she did not succeed in the nominations. in 2008 she ran for parliament, but was not elected. however, in january 2012 she was elected leader of the main oppositional democratic united party (dup) before the april legislative elections and became a member of parliament. but the liberals did not manage to defeat the ruling",
+        "source": "Han Myeong-sook",
+        "keywords": [
+          "korea female",
+          "한명숙 prime",
+          "korean 한명숙",
+          "korea april",
+          "korean"
+        ],
+        "length": 150
+      },
+      {
+        "chunk_id": "Chang Dae-hwan_0",
+        "text": "chang dae-hwan (also chang dae-whan; born 21 march 1952) is a south korean businessman. he is best known as the president of the \"maeil business newspaper\", south korea's main business daily. he also served a brief stint as south korea's acting prime minister in august 2002 under president kim dae-jung, but the national assembly voted not to confirm him.",
+        "source": "Chang Dae-hwan",
+        "keywords": [
+          "korean businessman",
+          "hwan chang",
+          "president maeil",
+          "chang dae",
+          "korea acting"
+        ],
+        "length": 59
+      },
+      {
+        "chunk_id": "May 16 coup_0",
+        "text": "the may 16 coup (hangul: 5.16 군사정변 ; hanja: 五一六軍事政變 ; rr: \"o-illyuk gunsa-jeongbyeon \" ) was a military coup d'état in south korea in 1961, organized and carried out by park chung-hee and his allies who formed the military revolutionary committee, nominally led by army chief of staff chang do-yong after the latter's acquiescence on the day of the coup. the coup rendered powerless the democratically elected government of yun bo-seon and ended the second republic, installing a reformist military supreme council for national reconstruction effectively led by park, who took over as chairman after general chang's arrest in july.",
+        "source": "May 16 coup",
+        "keywords": [
+          "military coup",
+          "coup hangul",
+          "korea 1961",
+          "park chung",
+          "chang arrest"
+        ],
+        "length": 101
+      },
+      {
+        "chunk_id": "Joey Vera_0",
+        "text": "joseph \"joey\" vera (born april 24, 1963) is an american heavy metal bassist who is known as a member of the heavy metal band armored saint and the progressive metal band fates warning. in 2004-2005 he replaced frank bello in anthrax as the band's bassist, but did not record with them. he was also a member of engine, recorded with tribe after tribe, and appears on the osi album \"free\". his first solo album, \"a thousand faces\", was released in 1994. his current solo project, a chinese firedrill, released an album titled \"circles\" in 2007.",
+        "source": "Joey Vera",
+        "keywords": [
+          "band fates",
+          "metal bassist",
+          "band bassist",
+          "joseph joey",
+          "joey vera"
+        ],
+        "length": 95
+      }
+    ],
+    "retrieval_scores": [
+      0.032258063554763794,
+      0.03030998818576336,
+      0.027598019689321518,
+      0.027579735964536667,
+      0.02631578966975212
+    ],
+    "generation": {
+      "query": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+      "final_answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+      "final_confidence": 0.86,
+      "all_samples": [
+        {
+          "confidence": 0.86,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.86\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.68,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.68\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.32,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.32\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        }
+      ],
+      "context_used": "[Doc 1] echosmith is an american, corporate indie pop band formed in february 2009 in chino, california. originally formed as a quartet of siblings, the band currently consists of sydney, noah and graham sierota, following the departure of eldest sibling jamie in late 2016. echosmith started first as \"ready set go!\" until they signed to warner bros. records in may 2012. they are best known for their hit song \"cool kids\", which reached number 13 on the \"billboard\" hot 100 and was certified double platinum by the riaa with over 1,200,000 sales in the united states and also double platinum by aria in australia. the song was warner bros. records' fifth-biggest-selling-digital song of 2014, with 1.3 million downloads sold. the band's debut album, \"talking dreams\", was released on october 8, 2013.\n\n[Doc 2] han myeong-sook (born march 24, 1944; korean: 한명숙 ] ) was the prime minister of south korea from april 2006 to march 2007. she is south korea's first female prime minister (second female prime minister overall if the acting premiership of chang sang is included). she was from the united new democratic party (undp) as a member of the korean national assembly (representative) for ilsan-gab, and is a graduate of ewha womans university in seoul with a degree in french literature. she resigned as prime minister on march 7, 2007 and declared her presidential candidacy. but she did not succeed in the nominations. in 2008 she ran for parliament, but was not elected. however, in january 2012 she was elected leader of the main oppositional democratic united party (dup) before the april legislative elections and became a member of parliament. but the liberals did not manage to defeat the ruling\n\n[Doc 3] chang dae-hwan (also chang dae-whan; born 21 march 1952) is a south korean businessman. he is best known as the president of the \"maeil business newspaper\", south korea's main business daily. he also served a brief stint as south korea's acting prime minister in august 2002 under president kim dae-jung, but the national assembly voted not to confirm him.\n\n[Doc 4] the may 16 coup (hangul: 5.16 군사정변 ; hanja: 五一六軍事政變 ; rr: \"o-illyuk gunsa-jeongbyeon \" ) was a military coup d'état in south korea in 1961, organized and carried out by park chung-hee and his allies who formed the military revolutionary committee, nominally led by army chief of staff chang do-yong after the latter's acquiescence on the day of the coup. the coup rendered powerless the democratically elected government of yun bo-seon and ended the second republic, installing a reformist military supreme council for national reconstruction effectively led by park, who took over as chairman after general chang's arrest in july.\n\n[Doc 5] joseph \"joey\" vera (born april 24, 1963) is an american heavy metal bassist who is known as a member of the heavy metal band armored saint and the progressive metal band fates warning. in 2004-2005 he replaced frank bello in anthrax as the band's bassist, but did not record with them. he was also a member of engine, recorded with tribe after tribe, and appears on the osi album \"free\". his first solo album, \"a thousand faces\", was released in 1994. his current solo project, a chinese firedrill, released an album titled \"circles\" in 2007."
+    },
+    "timestamp": 1775020573.607451
+  },
+  {
+    "query": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+    "gold_answer": "Eenasul Fateh",
+    "retrieved_docs": [
+      {
+        "chunk_id": "El-P_0",
+        "text": "jaime meline (born march 2, 1975), better known by his stage name el-p (shortened from el producto), is an american hip hop recording artist, record producer, and record executive. originally a member of company flow, el-p has been a major driving force in alternative hip hop for more than two decades, producing for several notable rappers such as aesop rock, mr. lif, and cage, among others.",
+        "source": "El-P",
+        "keywords": [
+          "flow el",
+          "el",
+          "stage el",
+          "jaime meline",
+          "el major"
+        ],
+        "length": 66
+      },
+      {
+        "chunk_id": "New Faces of 1952_0",
+        "text": "new faces of 1952 is a musical revue with songs and comedy skits. it ran on broadway for nearly a year in 1952 and was then made into a motion picture in 1954. it helped jump start the careers of several young performers including paul lynde, alice ghostley, eartha kitt, robert clary, carol lawrence, ronny graham, performer/writer mel brooks (as melvin brooks), and lyricist sheldon harnick.",
+        "source": "New Faces of 1952",
+        "keywords": [
+          "faces 1952",
+          "new faces",
+          "1952 musical",
+          "mel brooks",
+          "melvin brooks"
+        ],
+        "length": 66
+      },
+      {
+        "chunk_id": "Global Fighting Championship_0",
+        "text": "global fighting championship (also known as gfc) was a uae-based kickboxing and mixed martial arts (mma) event. fighters from around world on the roster include badr hari, peter aerts, peter graham, dewey cooper, zabit samedov. it was considered as one of the biggest kickboxing and mma promotion in middle east. <ref name=\"emirates 24/7\"> </ref>",
+        "source": "Global Fighting Championship",
+        "keywords": [
+          "gfc uae",
+          "global fighting",
+          "fighters world",
+          "gfc",
+          "kickboxing mma"
+        ],
+        "length": 54
+      },
+      {
+        "chunk_id": "Tony Levin_0",
+        "text": "anthony frederick levin (born june 6, 1946) is an american musician and composer, specializing in electric bass, chapman stick and upright bass. he also sings and plays synthesizer. levin is best known for his work with king crimson and peter gabriel. he was also a member of liquid tension experiment, bruford levin upper extremities, projekct one, and projekct four. he has led his own band, stick men.",
+        "source": "Tony Levin",
+        "keywords": [
+          "frederick levin",
+          "synthesizer levin",
+          "bruford levin",
+          "levin",
+          "levin upper"
+        ],
+        "length": 67
+      },
+      {
+        "chunk_id": "A. C. Newman_0",
+        "text": "allan carl newman (born april 14, 1968) is a canadian musician and singer–songwriter. he was a member of the indie rock bands superconductor and zumpano in the 1990s. following the breakup of those bands, he reemerged as the leader of the new pornographers in 2000, a band who have enjoyed commercial and critical success.",
+        "source": "A. C. Newman",
+        "keywords": [
+          "carl newman",
+          "newman",
+          "newman born",
+          "allan carl",
+          "new pornographers"
+        ],
+        "length": 54
+      }
+    ],
+    "retrieval_scores": [
+      0.03201844170689583,
+      0.027106227353215218,
+      0.026171742007136345,
+      0.025306979194283485,
+      0.02525252476334572
+    ],
+    "generation": {
+      "query": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+      "final_answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+      "final_confidence": 0.85,
+      "all_samples": [
+        {
+          "confidence": 0.85,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.85\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.65,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.65\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.42,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.42\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        }
+      ],
+      "context_used": "[Doc 1] jaime meline (born march 2, 1975), better known by his stage name el-p (shortened from el producto), is an american hip hop recording artist, record producer, and record executive. originally a member of company flow, el-p has been a major driving force in alternative hip hop for more than two decades, producing for several notable rappers such as aesop rock, mr. lif, and cage, among others.\n\n[Doc 2] new faces of 1952 is a musical revue with songs and comedy skits. it ran on broadway for nearly a year in 1952 and was then made into a motion picture in 1954. it helped jump start the careers of several young performers including paul lynde, alice ghostley, eartha kitt, robert clary, carol lawrence, ronny graham, performer/writer mel brooks (as melvin brooks), and lyricist sheldon harnick.\n\n[Doc 3] global fighting championship (also known as gfc) was a uae-based kickboxing and mixed martial arts (mma) event. fighters from around world on the roster include badr hari, peter aerts, peter graham, dewey cooper, zabit samedov. it was considered as one of the biggest kickboxing and mma promotion in middle east. <ref name=\"emirates 24/7\"> </ref>\n\n[Doc 4] anthony frederick levin (born june 6, 1946) is an american musician and composer, specializing in electric bass, chapman stick and upright bass. he also sings and plays synthesizer. levin is best known for his work with king crimson and peter gabriel. he was also a member of liquid tension experiment, bruford levin upper extremities, projekct one, and projekct four. he has led his own band, stick men.\n\n[Doc 5] allan carl newman (born april 14, 1968) is a canadian musician and singer–songwriter. he was a member of the indie rock bands superconductor and zumpano in the 1990s. following the breakup of those bands, he reemerged as the leader of the new pornographers in 2000, a band who have enjoyed commercial and critical success."
+    },
+    "timestamp": 1775020574.2469964
+  },
+  {
+    "query": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+    "gold_answer": "3,677 seated",
+    "retrieved_docs": [
+      {
+        "chunk_id": "103rd Grey Cup_0",
+        "text": "the 103rd grey cup was a canadian football game that was played on november 29, 2015 between the east division champion ottawa redblacks and the west division champion edmonton eskimos to decide the canadian football league (cfl) championship for the 2015 season. the game was played at investors group field in winnipeg, manitoba. shaw communications was the presenting sponsor of the game; it was the first time in cfl history that the grey cup has been sponsored. the eskimos won the contest 26–20 to claim their 14th grey cup championship in franchise history and first since 2005. mike reilly was named most valuable player and shamawd chambers received the dick suderman trophy as most valuable canadian.",
+        "source": "103rd Grey Cup",
+        "keywords": [
+          "grey cup",
+          "cfl championship",
+          "cup canadian",
+          "league cfl",
+          "champion edmonton"
+        ],
+        "length": 116
+      },
+      {
+        "chunk_id": "Hawks Nest, West Virginia_0",
+        "text": "hawk's nest, the site of hawks nest state park, is a peak on gauley mountain in ansted, west virginia, usa. the cliffs at this point rise 585 ft (178 m) above the new river. located on the james river and kanawha turnpike (the road that served as an extension of the canal across what is now west virginia), many early travelers on this road stopped to see the view of the river below. in modern times, the midland trail carries u.s. route 60 through the same general route. ample parking at the overlook in the state park provides tourists with free access to the views.",
+        "source": "Hawks Nest, West Virginia",
+        "keywords": [
+          "hawk nest",
+          "hawks nest",
+          "hawk",
+          "midland trail",
+          "site hawks"
+        ],
+        "length": 105
+      },
+      {
+        "chunk_id": "2014–15 Ukrainian Hockey Championship_0",
+        "text": "the 2014–15 ukrainian hockey championship was the 23rd season of the ukrainian hockey championship. only four teams participated in the league this season, because of the instability in ukraine and that most of the clubs had economical issues. generals kiev was the only team that participated in the league the previous season, and the season started first after the year-end of 2014. the regular season included just 12 rounds, where all the teams went to the semifinals. in the final, atek kiev defeated the regular season winner hk kremenchuk.",
+        "source": "2014–15 Ukrainian Hockey Championship",
+        "keywords": [
+          "season ukrainian",
+          "kiev defeated",
+          "kiev team",
+          "ukrainian hockey",
+          "generals kiev"
+        ],
+        "length": 89
+      },
+      {
+        "chunk_id": "RISE (sculpture)_0",
+        "text": "rise is a concept £400,000 public art spherical metal sculpture in belfast by wolfgang buttress. it is 37.5 m high and 30 m wide and was constructed in early 2011 in the centre of the broadway roundabout, at the junction of the westlink and m1 motorway, a main gateway to the city where (as of 2009) more than 80,000 cars on average flow past it each day. it is informally known as the balls on the falls as this junction also gives access to the falls road area via broadway.",
+        "source": "RISE (sculpture)",
+        "keywords": [
+          "sculpture belfast",
+          "rise concept",
+          "rise",
+          "falls road",
+          "falls junction"
+        ],
+        "length": 90
+      },
+      {
+        "chunk_id": "Frontier Texas!_0",
+        "text": "frontier texas! is a 14000 sqft museum of the american west in downtown abilene, the seat of taylor county in west texas. the museum serves as a visitors information center for the texas forts trail, one of ten texas historical commission driving regions. opened in 2004 at 625 north first street on 6.4 acre near the texas and pacific railway tracks, the museum focuses on settlers and lifestyles in the old west. exhibits display attacks by indians and wolves, stampeding buffalo, a card game shootout, and a prairie thunderstorm. visitors see depictions of buffalo hunters, comanche warriors, explorers, and pioneers in the theatre called the \"century of adventure\", 1780-1880. the narrator in the theater is actor-artist buck taylor from fort worth.",
+        "source": "Frontier Texas!",
+        "keywords": [
+          "frontier texas",
+          "trail texas",
+          "texas museum",
+          "texas forts",
+          "texas historical"
+        ],
+        "length": 121
+      }
+    ],
+    "retrieval_scores": [
+      0.028739120811223984,
+      0.024396929889917374,
+      0.02439374476671219,
+      0.024001073092222214,
+      0.0234118290245533
+    ],
+    "generation": {
+      "query": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+      "final_answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+      "final_confidence": 0.94,
+      "all_samples": [
+        {
+          "confidence": 0.62,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.62\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.39,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.39\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.94,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.94\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        }
+      ],
+      "context_used": "[Doc 1] the 103rd grey cup was a canadian football game that was played on november 29, 2015 between the east division champion ottawa redblacks and the west division champion edmonton eskimos to decide the canadian football league (cfl) championship for the 2015 season. the game was played at investors group field in winnipeg, manitoba. shaw communications was the presenting sponsor of the game; it was the first time in cfl history that the grey cup has been sponsored. the eskimos won the contest 26–20 to claim their 14th grey cup championship in franchise history and first since 2005. mike reilly was named most valuable player and shamawd chambers received the dick suderman trophy as most valuable canadian.\n\n[Doc 2] hawk's nest, the site of hawks nest state park, is a peak on gauley mountain in ansted, west virginia, usa. the cliffs at this point rise 585 ft (178 m) above the new river. located on the james river and kanawha turnpike (the road that served as an extension of the canal across what is now west virginia), many early travelers on this road stopped to see the view of the river below. in modern times, the midland trail carries u.s. route 60 through the same general route. ample parking at the overlook in the state park provides tourists with free access to the views.\n\n[Doc 3] the 2014–15 ukrainian hockey championship was the 23rd season of the ukrainian hockey championship. only four teams participated in the league this season, because of the instability in ukraine and that most of the clubs had economical issues. generals kiev was the only team that participated in the league the previous season, and the season started first after the year-end of 2014. the regular season included just 12 rounds, where all the teams went to the semifinals. in the final, atek kiev defeated the regular season winner hk kremenchuk.\n\n[Doc 4] rise is a concept £400,000 public art spherical metal sculpture in belfast by wolfgang buttress. it is 37.5 m high and 30 m wide and was constructed in early 2011 in the centre of the broadway roundabout, at the junction of the westlink and m1 motorway, a main gateway to the city where (as of 2009) more than 80,000 cars on average flow past it each day. it is informally known as the balls on the falls as this junction also gives access to the falls road area via broadway.\n\n[Doc 5] frontier texas! is a 14000 sqft museum of the american west in downtown abilene, the seat of taylor county in west texas. the museum serves as a visitors information center for the texas forts trail, one of ten texas historical commission driving regions. opened in 2004 at 625 north first street on 6.4 acre near the texas and pacific railway tracks, the museum focuses on settlers and lifestyles in the old west. exhibits display attacks by indians and wolves, stampeding buffalo, a card game shootout, and a prairie thunderstorm. visitors see depictions of buffalo hunters, comanche warriors, explorers, and pioneers in the theatre called the \"century of adventure\", 1780-1880. the narrator in the theater is actor-artist buck taylor from fort worth."
+    },
+    "timestamp": 1775020575.0580816
+  },
+  {
+    "query": "Who is older, Annie Morton or Terry Richardson?",
+    "gold_answer": "Terry Richardson",
+    "retrieved_docs": [
+      {
+        "chunk_id": "Kathryn Calder_0",
+        "text": "kathryn jane calder (born june 17, 1982) is a canadian indie rock musician, who performs as a solo artist, and is a member of the band the new pornographers. she is a former member of immaculate machine. calder started with the new pornographers by filling in for neko case for live performances and was made a permanent member in 2006.",
+        "source": "Kathryn Calder",
+        "keywords": [
+          "jane calder",
+          "kathryn jane",
+          "new pornographers",
+          "kathryn",
+          "pornographers member"
+        ],
+        "length": 60
+      },
+      {
+        "chunk_id": "Warren Furutani_0",
+        "text": "warren t. furutani (born october 16, 1947) is an american politician who served in the california state assembly. he is a democrat and a fourth-generation japanese american. furutani was elected in a special election in 2008. he replaced laura richardson as the member of the us house of representatives from california's 37th district. prior to being elected, he served on the los angeles unified school district and then the los angeles community college district board of trustees. he was the first asian pacific american ever elected to the lausd in 1987 and became the board's president in 1991.",
+        "source": "Warren Furutani",
+        "keywords": [
+          "representatives california",
+          "elected lausd",
+          "warren furutani",
+          "furutani elected",
+          "american furutani"
+        ],
+        "length": 98
+      },
+      {
+        "chunk_id": "Nathalia Ramos_0",
+        "text": "nathalia norah ramos cohen (born july 3, 1992) is a spanish-australian actress, who also holds u.s. citizenship. ramos is known for her portrayals of yasmin in the 2007 film \"\", jill in the 2013 film \"the damned\", and lead character nina martin in the 2011 nickelodeon television series \"house of anubis\".",
+        "source": "Nathalia Ramos",
+        "keywords": [
+          "portrayals yasmin",
+          "film jill",
+          "yasmin",
+          "nathalia norah",
+          "jill"
+        ],
+        "length": 51
+      },
+      {
+        "chunk_id": "Sue Donahue_0",
+        "text": "sue donahue is an american politician. donahue was appointed in 2016 to serve in the arizona state senate representing the fifth legislative district as a member of the republican party. donahue replaced kelli ward who resigned to run for the united states senate. donahue did not run for re-election in 2016 and was replaced by sonny borrelli.",
+        "source": "Sue Donahue",
+        "keywords": [
+          "sue donahue",
+          "donahue appointed",
+          "senate donahue",
+          "politician donahue",
+          "donahue replaced"
+        ],
+        "length": 57
+      },
+      {
+        "chunk_id": "Joe Heck_0",
+        "text": "joseph john “joe” heck (born october 30, 1961) is an american politician, physician, and u.s. army brigadier general who had served as the u.s. representative for nevada's 3rd congressional district from 2011 to 2017. heck, a member of the republican party, is a board-certified physician and served as a nevada state senator from 2004-08. he ran unsuccessfully against democrat catherine cortez masto in the general election for the open nevada united states senate seat in 2016. in the same year, heck made headlines by joining a long list of republicans who opposed the gop nominee for president, donald trump.",
+        "source": "Joe Heck",
+        "keywords": [
+          "representative nevada",
+          "joe heck",
+          "served nevada",
+          "nevada state",
+          "gop nominee"
+        ],
+        "length": 99
+      }
+    ],
+    "retrieval_scores": [
+      0.029726775363087654,
+      0.028739120811223984,
+      0.027912385761737823,
+      0.026254180818796158,
+      0.024422934278845787
+    ],
+    "generation": {
+      "query": "Who is older, Annie Morton or Terry Richardson?",
+      "final_answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+      "final_confidence": 0.86,
+      "all_samples": [
+        {
+          "confidence": 0.71,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.71\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.44,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.44\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.86,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.86\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        }
+      ],
+      "context_used": "[Doc 1] kathryn jane calder (born june 17, 1982) is a canadian indie rock musician, who performs as a solo artist, and is a member of the band the new pornographers. she is a former member of immaculate machine. calder started with the new pornographers by filling in for neko case for live performances and was made a permanent member in 2006.\n\n[Doc 2] warren t. furutani (born october 16, 1947) is an american politician who served in the california state assembly. he is a democrat and a fourth-generation japanese american. furutani was elected in a special election in 2008. he replaced laura richardson as the member of the us house of representatives from california's 37th district. prior to being elected, he served on the los angeles unified school district and then the los angeles community college district board of trustees. he was the first asian pacific american ever elected to the lausd in 1987 and became the board's president in 1991.\n\n[Doc 3] nathalia norah ramos cohen (born july 3, 1992) is a spanish-australian actress, who also holds u.s. citizenship. ramos is known for her portrayals of yasmin in the 2007 film \"\", jill in the 2013 film \"the damned\", and lead character nina martin in the 2011 nickelodeon television series \"house of anubis\".\n\n[Doc 4] sue donahue is an american politician. donahue was appointed in 2016 to serve in the arizona state senate representing the fifth legislative district as a member of the republican party. donahue replaced kelli ward who resigned to run for the united states senate. donahue did not run for re-election in 2016 and was replaced by sonny borrelli.\n\n[Doc 5] joseph john “joe” heck (born october 30, 1961) is an american politician, physician, and u.s. army brigadier general who had served as the u.s. representative for nevada's 3rd congressional district from 2011 to 2017. heck, a member of the republican party, is a board-certified physician and served as a nevada state senator from 2004-08. he ran unsuccessfully against democrat catherine cortez masto in the general election for the open nevada united states senate seat in 2016. in the same year, heck made headlines by joining a long list of republicans who opposed the gop nominee for president, donald trump."
+    },
+    "timestamp": 1775020575.8031409
+  },
+  {
+    "query": "Are Local H and For Against both from the United States?",
+    "gold_answer": "yes",
+    "retrieved_docs": [
+      {
+        "chunk_id": "Joe Heck_0",
+        "text": "joseph john “joe” heck (born october 30, 1961) is an american politician, physician, and u.s. army brigadier general who had served as the u.s. representative for nevada's 3rd congressional district from 2011 to 2017. heck, a member of the republican party, is a board-certified physician and served as a nevada state senator from 2004-08. he ran unsuccessfully against democrat catherine cortez masto in the general election for the open nevada united states senate seat in 2016. in the same year, heck made headlines by joining a long list of republicans who opposed the gop nominee for president, donald trump.",
+        "source": "Joe Heck",
+        "keywords": [
+          "representative nevada",
+          "joe heck",
+          "served nevada",
+          "nevada state",
+          "gop nominee"
+        ],
+        "length": 99
+      },
+      {
+        "chunk_id": "Los Angeles County Federation of Labor_1",
+        "text": "in both organizing and political campaigns, electing pro-union and pro-worker candidates and advancing public policies that support workers, families and local communities.” they also encourage people to help make change by voting. the los angeles county federation of labor is a major focal point for new american labor movement. recently, the impressive progression of los angeles becoming a union city has become a stand out model for other non-union cities because of los angeles’ anti-union history. los angeles combines the economic development activism and the refined political work of the los angeles county federation of labor.",
+        "source": "Los Angeles County Federation of Labor",
+        "keywords": [
+          "angeles union",
+          "federation labor",
+          "union cities",
+          "angeles county",
+          "pro union"
+        ],
+        "length": 96
+      },
+      {
+        "chunk_id": "George Henry Williams_0",
+        "text": "george henry williams (march 26, 1823april 4, 1910) was an american judge and politician. he served as chief justice of the oregon supreme court, was the 32nd attorney general of the united states, and was elected oregon's u.s. senator, and served one term. williams, as u.s. senator, authored and supported legislation that allowed the u.s. military to be deployed in reconstruction southern states to allow for an orderly process of readmittance into the united states. williams was the first presidential cabinet member to be appointed from the pacific coast. as attorney general under president ulysses s. grant, williams continued the prosecutions that shut down the ku klux klan. he had to contend with controversial election disputes in reconstructed southern states. president grant and williams legally recognized p. b. s. pinchback as the first african american state governor. williams ruled that the \"virginius\", a gun-running ship captured by spain during the",
+        "source": "George Henry Williams",
+        "keywords": [
+          "williams senator",
+          "governor williams",
+          "oregon senator",
+          "williams presidential",
+          "states williams"
+        ],
+        "length": 150
+      },
+      {
+        "chunk_id": "John Hoeven_0",
+        "text": "john henry hoeven iii (born march 13, 1957) is an american politician and the senior united states senator from north dakota, in office since 2011. a member of the north dakota republican party, he previously served as the 31st governor of north dakota from december 2000 to december 2010. hoeven was elected to the u.s. senate in the november 2, 2010 general election. he replaced junior senator byron l. dorgan, who chose not to seek re-election. hoeven became the senior senator in 2013 after kent conrad retired and was replaced by heidi heitkamp, who was once hoeven's opponent for the governor's office.",
+        "source": "John Hoeven",
+        "keywords": [
+          "hoeven elected",
+          "dakota republican",
+          "senator north",
+          "dakota",
+          "election hoeven"
+        ],
+        "length": 102
+      },
+      {
+        "chunk_id": "Samuel D. Jackson_0",
+        "text": "samuel dillon jackson (may 28, 1895march 8, 1951) was a united states senator from indiana. born near zanesville, indiana, he attended the public schools of fort wayne and graduated from a predecessor of the now indiana university robert h. mckinney school of law in indianapolis in 1917, gaining admission to the bar the same year. during the first world war, he served as a captain of infantry from 1917 to 1919, and engaged in the practice of law at fort wayne in 1919. he was prosecuting attorney of allen county from 1924 to 1928. he ran unsuccessfully as a democrat for election in 1928 to the seventy-first congress, and was attorney general of indiana from 1940 to 1941. on january 28, 1944, he was appointed as a democrat to the u.s. senate to fill the vacancy caused by the death of frederick van nuys and served from january 28, 1944,",
+        "source": "Samuel D. Jackson",
+        "keywords": [
+          "dillon jackson",
+          "senator indiana",
+          "samuel dillon",
+          "wayne 1919",
+          "dillon"
+        ],
+        "length": 150
+      }
+    ],
+    "retrieval_scores": [
+      0.0314980149269104,
+      0.03109932318329811,
+      0.027402402833104134,
+      0.02711804211139679,
+      0.02683013491332531
+    ],
+    "generation": {
+      "query": "Are Local H and For Against both from the United States?",
+      "final_answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+      "final_confidence": 0.92,
+      "all_samples": [
+        {
+          "confidence": 0.92,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.92\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.35,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.35\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        },
+        {
+          "confidence": 0.42,
+          "explanation": "The retrieved documents explicitly mention the key entities.",
+          "answer": "Based on the provided documents, the answer is related to the query but synthesized by this mock model.",
+          "raw": "Confidence: 0.42\nExplanation: The retrieved documents explicitly mention the key entities.\nAnswer: Based on the provided documents, the answer is related to the query but synthesized by this mock model."
+        }
+      ],
+      "context_used": "[Doc 1] joseph john “joe” heck (born october 30, 1961) is an american politician, physician, and u.s. army brigadier general who had served as the u.s. representative for nevada's 3rd congressional district from 2011 to 2017. heck, a member of the republican party, is a board-certified physician and served as a nevada state senator from 2004-08. he ran unsuccessfully against democrat catherine cortez masto in the general election for the open nevada united states senate seat in 2016. in the same year, heck made headlines by joining a long list of republicans who opposed the gop nominee for president, donald trump.\n\n[Doc 2] in both organizing and political campaigns, electing pro-union and pro-worker candidates and advancing public policies that support workers, families and local communities.” they also encourage people to help make change by voting. the los angeles county federation of labor is a major focal point for new american labor movement. recently, the impressive progression of los angeles becoming a union city has become a stand out model for other non-union cities because of los angeles’ anti-union history. los angeles combines the economic development activism and the refined political work of the los angeles county federation of labor.\n\n[Doc 3] george henry williams (march 26, 1823april 4, 1910) was an american judge and politician. he served as chief justice of the oregon supreme court, was the 32nd attorney general of the united states, and was elected oregon's u.s. senator, and served one term. williams, as u.s. senator, authored and supported legislation that allowed the u.s. military to be deployed in reconstruction southern states to allow for an orderly process of readmittance into the united states. williams was the first presidential cabinet member to be appointed from the pacific coast. as attorney general under president ulysses s. grant, williams continued the prosecutions that shut down the ku klux klan. he had to contend with controversial election disputes in reconstructed southern states. president grant and williams legally recognized p. b. s. pinchback as the first african american state governor. williams ruled that the \"virginius\", a gun-running ship captured by spain during the\n\n[Doc 4] john henry hoeven iii (born march 13, 1957) is an american politician and the senior united states senator from north dakota, in office since 2011. a member of the north dakota republican party, he previously served as the 31st governor of north dakota from december 2000 to december 2010. hoeven was elected to the u.s. senate in the november 2, 2010 general election. he replaced junior senator byron l. dorgan, who chose not to seek re-election. hoeven became the senior senator in 2013 after kent conrad retired and was replaced by heidi heitkamp, who was once hoeven's opponent for the governor's office.\n\n[Doc 5] samuel dillon jackson (may 28, 1895march 8, 1951) was a united states senator from indiana. born near zanesville, indiana, he attended the public schools of fort wayne and graduated from a predecessor of the now indiana university robert h. mckinney school of law in indianapolis in 1917, gaining admission to the bar the same year. during the first world war, he served as a captain of infantry from 1917 to 1919, and engaged in the practice of law at fort wayne in 1919. he was prosecuting attorney of allen county from 1924 to 1928. he ran unsuccessfully as a democrat for election in 1928 to the seventy-first congress, and was attorney general of indiana from 1940 to 1941. on january 28, 1944, he was appointed as a democrat to the u.s. senate to fill the vacancy caused by the death of frederick van nuys and served from january 28, 1944,"
+    },
+    "timestamp": 1775020576.466605
+  }
+]

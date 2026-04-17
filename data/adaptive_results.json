@@ -1,0 +1,290 @@
+[
+  {
+    "query": "Were Scott Derrickson and Ed Wood of the same nationality?",
+    "final_answer": "Yes",
+    "final_confidence": 0.8879623826105759,
+    "total_rounds": 1,
+    "rounds": [
+      {
+        "round": 1,
+        "current_q": "Were Scott Derrickson and Ed Wood of the same nationality?",
+        "k": 5,
+        "Sr": 0.023364898572626403,
+        "Sl": 1.0,
+        "Sc": 1.0,
+        "z": 0.7070094695717879,
+        "C": 0.8879623826105759,
+        "final_ans": "Yes"
+      }
+    ],
+    "gold_answer": "yes"
+  },
+  {
+    "query": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+    "final_answer": "To answer this question, we need to identify the actress who portrayed Corliss Archer in the film Kiss and Tell and then find out if she held any government position.\n\nThe film Kiss and Tell (1945) starred Shirley Temple as Corliss Archer. However, none of the provided documents mention Shirley Temple or her government positions.\n\nUsing general knowledge, we can find that Shirley Temple was indeed involved in politics. She served as a delegate to the United Nations General Assembly and was appointed as the United States Ambassador to Ghana and later to Czechoslovakia.\n\nConfidence: 0.8\nExplanation: The answer is not directly found",
+    "final_confidence": 0.7811211511793413,
+    "total_rounds": 2,
+    "rounds": [
+      {
+        "round": 1,
+        "current_q": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+        "k": 5,
+        "Sr": 0.026749763511351585,
+        "Sl": 0.0,
+        "Sc": 1.0,
+        "z": 0.30802492905340545,
+        "C": 0.12788936802999662,
+        "final_ans": "Unable to determine from the given context."
+      },
+      {
+        "round": 2,
+        "current_q": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+        "k": 10,
+        "Sr": 0.024070628648828186,
+        "Sl": 0.8,
+        "Sc": 1.0,
+        "z": 0.6272211885946485,
+        "C": 0.7811211511793413,
+        "final_ans": "To answer this question, we need to identify the actress who portrayed Corliss Archer in the film Kiss and Tell and then find out if she held any government position.\n\nThe film Kiss and Tell (1945) starred Shirley Temple as Corliss Archer. However, none of the provided documents mention Shirley Temple or her government positions.\n\nUsing general knowledge, we can find that Shirley Temple was indeed involved in politics. She served as a delegate to the United Nations General Assembly and was appointed as the United States Ambassador to Ghana and later to Czechoslovakia.\n\nConfidence: 0.8\nExplanation: The answer is not directly found"
+      }
+    ],
+    "gold_answer": "Chief of Protocol"
+  },
+  {
+    "query": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+    "final_answer": "None of the above documents provide a clear answer to this question.",
+    "final_confidence": 0.12739687951712367,
+    "total_rounds": 2,
+    "rounds": [
+      {
+        "round": 1,
+        "current_q": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+        "k": 5,
+        "Sr": 0.02917215236917804,
+        "Sl": 0.0,
+        "Sc": 1.0,
+        "z": 0.3087516457107534,
+        "C": 0.12870209603760013,
+        "final_ans": "None of the above documents provide information about the series in question. However, based on general knowledge, a possible answer could be \"The Hunger Games\" by Suzanne Collins, but it does not exactly match the description. Another possible series that comes to mind is \"The Ex"
+      },
+      {
+        "round": 2,
+        "current_q": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+        "k": 10,
+        "Sr": 0.025275470831337344,
+        "Sl": 0.0,
+        "Sc": 1.0,
+        "z": 0.3075826412494012,
+        "C": 0.12739687951712367,
+        "final_ans": "None of the above documents provide a clear answer to this question."
+      }
+    ],
+    "gold_answer": "Animorphs"
+  },
+  {
+    "query": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+    "final_answer": "No answer can be provided based on the given context.",
+    "final_confidence": 0.12750650703725314,
+    "total_rounds": 2,
+    "rounds": [
+      {
+        "round": 1,
+        "current_q": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+        "k": 5,
+        "Sr": 0.030293613279136572,
+        "Sl": 0.0,
+        "Sc": 1.0,
+        "z": 0.30908808398374094,
+        "C": 0.12907984225889396,
+        "final_ans": "No information available"
+      },
+      {
+        "round": 2,
+        "current_q": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+        "k": 10,
+        "Sr": 0.025604067585363384,
+        "Sl": 0.0,
+        "Sc": 1.0,
+        "z": 0.307681220275609,
+        "C": 0.12750650703725314,
+        "final_ans": "No answer can be provided based on the given context."
+      }
+    ],
+    "gold_answer": "no"
+  },
+  {
+    "query": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+    "final_answer": "To answer this question, let's break it down step by step:\n\n1. **Understanding the Question**: The question asks about the director of the romantic comedy \"Big Stone Gap\" and their base in New York City.\n\n2. **Relevant Information**: None of the provided documents (Doc 1 to Doc 10) mention the director of \"Big Stone Gap\" or their connection to New York City. \n\n3. **General Knowledge**: The director of \"Big Stone Gap\" is Adriana Trigiani. According to general knowledge, Adriana Trigiani is an American author, film director, and producer. While the provided",
+    "final_confidence": 0.12722526858439398,
+    "total_rounds": 2,
+    "rounds": [
+      {
+        "round": 1,
+        "current_q": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+        "k": 5,
+        "Sr": 0.028008357240227176,
+        "Sl": 0.0,
+        "Sc": 1.0,
+        "z": 0.30840250717206813,
+        "C": 0.12831108680883346,
+        "final_ans": "The question cannot be answered based on the provided context. However, according to general knowledge, the director of the romantic comedy \"Big Stone Gap\" is Adriana Trigiani, and she is based in New York City."
+      },
+      {
+        "round": 2,
+        "current_q": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+        "k": 10,
+        "Sr": 0.024760600214733933,
+        "Sl": 0.0,
+        "Sc": 1.0,
+        "z": 0.3074281800644202,
+        "C": 0.12722526858439398,
+        "final_ans": "To answer this question, let's break it down step by step:\n\n1. **Understanding the Question**: The question asks about the director of the romantic comedy \"Big Stone Gap\" and their base in New York City.\n\n2. **Relevant Information**: None of the provided documents (Doc 1 to Doc 10) mention the director of \"Big Stone Gap\" or their connection to New York City. \n\n3. **General Knowledge**: The director of \"Big Stone Gap\" is Adriana Trigiani. According to general knowledge, Adriana Trigiani is an American author, film director, and producer. While the provided"
+      }
+    ],
+    "gold_answer": "Greenwich Village, New York City"
+  },
+  {
+    "query": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+    "final_answer": "I couldn't find the answer in the given context.",
+    "final_confidence": 0.12674546779363188,
+    "total_rounds": 2,
+    "rounds": [
+      {
+        "round": 1,
+        "current_q": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+        "k": 5,
+        "Sr": 0.026651643084513472,
+        "Sl": 0.0,
+        "Sc": 1.0,
+        "z": 0.30799549292535405,
+        "C": 0.12785654042985226,
+        "final_ans": "I couldn't find any information about the debut album \"2014 S/S\" of a South Korean boy group in the provided context. However, based on general knowledge, I can try to find the answer. The South Korean boy group that released the debut album \"2014 S/S\" is likely to be Akdong Musician's rival group, Winner, or another group, but without more information"
+      },
+      {
+        "round": 2,
+        "current_q": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+        "k": 10,
+        "Sr": 0.023317937020599158,
+        "Sl": 0.0,
+        "Sc": 1.0,
+        "z": 0.30699538110617974,
+        "C": 0.12674546779363188,
+        "final_ans": "I couldn't find the answer in the given context."
+      }
+    ],
+    "gold_answer": "YG Entertainment"
+  },
+  {
+    "query": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+    "final_answer": "Not available in the provided context.",
+    "final_confidence": 0.12647998093857954,
+    "total_rounds": 2,
+    "rounds": [
+      {
+        "round": 1,
+        "current_q": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+        "k": 5,
+        "Sr": 0.024655014339556715,
+        "Sl": 0.0,
+        "Sc": 1.0,
+        "z": 0.307396504301867,
+        "C": 0.12719010028747332,
+        "final_ans": "Not found in the provided context."
+      },
+      {
+        "round": 2,
+        "current_q": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+        "k": 10,
+        "Sr": 0.022517664889004127,
+        "Sl": 0.0,
+        "Sc": 1.0,
+        "z": 0.3067552994667012,
+        "C": 0.12647998093857954,
+        "final_ans": "Not available in the provided context."
+      }
+    ],
+    "gold_answer": "Eenasul Fateh"
+  },
+  {
+    "query": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+    "final_answer": "I don't have enough information to answer this question.",
+    "final_confidence": 0.12600248675132156,
+    "total_rounds": 2,
+    "rounds": [
+      {
+        "round": 1,
+        "current_q": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+        "k": 5,
+        "Sr": 0.023078997754750155,
+        "Sl": 0.0,
+        "Sc": 1.0,
+        "z": 0.30692369932642505,
+        "C": 0.1266661508692141,
+        "final_ans": "The Lewiston Maineiacs played their home games at the Androscoggin Bank Colisée, which has a seating capacity of approximately 3,677."
+      },
+      {
+        "round": 2,
+        "current_q": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+        "k": 10,
+        "Sr": 0.021074704160021236,
+        "Sl": 0.0,
+        "Sc": 1.0,
+        "z": 0.30632241124800635,
+        "C": 0.12600248675132156,
+        "final_ans": "I don't have enough information to answer this question."
+      }
+    ],
+    "gold_answer": "3,677 seated"
+  },
+  {
+    "query": "Who is older, Annie Morton or Terry Richardson?",
+    "final_answer": "Unable to determine due to lack of information.",
+    "final_confidence": 0.12665756098815203,
+    "total_rounds": 2,
+    "rounds": [
+      {
+        "round": 1,
+        "current_q": "Who is older, Annie Morton or Terry Richardson?",
+        "k": 5,
+        "Sr": 0.025532522756329553,
+        "Sl": 0.0,
+        "Sc": 1.0,
+        "z": 0.30765975682689883,
+        "C": 0.12748263116051173,
+        "final_ans": "Unable to determine, as there is no information about Annie Morton or Terry Richardson in the provided context."
+      },
+      {
+        "round": 2,
+        "current_q": "Who is older, Annie Morton or Terry Richardson?",
+        "k": 10,
+        "Sr": 0.023053113383522488,
+        "Sl": 0.0,
+        "Sc": 1.0,
+        "z": 0.30691593401505673,
+        "C": 0.12665756098815203,
+        "final_ans": "Unable to determine due to lack of information."
+      }
+    ],
+    "gold_answer": "Terry Richardson"
+  },
+  {
+    "query": "Are Local H and For Against both from the United States?",
+    "final_answer": "Yes, Local H is an American rock band from Zion, Illinois, and For Against is also an American post-punk band from Lincoln, Nebraska, so both bands are from the United States.",
+    "final_confidence": 0.888962518439557,
+    "total_rounds": 1,
+    "rounds": [
+      {
+        "round": 1,
+        "current_q": "Are Local H and For Against both from the United States?",
+        "k": 5,
+        "Sr": 0.02672908570333273,
+        "Sl": 1.0,
+        "Sc": 1.0,
+        "z": 0.7080187257109998,
+        "C": 0.888962518439557,
+        "final_ans": "Yes, Local H is an American rock band from Zion, Illinois, and For Against is also an American post-punk band from Lincoln, Nebraska, so both bands are from the United States."
+      }
+    ],
+    "gold_answer": "yes"
+  }
+]
